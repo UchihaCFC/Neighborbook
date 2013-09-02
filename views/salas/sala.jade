@@ -1,0 +1,327 @@
+doctype 5
+html
+	head
+		title Sala Virtual #{sala.nombre}
+		meta(charset='utf-8')
+		link(rel='stylesheet', href='/stylesheets/normalize.css')
+		link(rel='stylesheet', href='/stylesheets/estilos.css')
+		link(rel="stylesheet", href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css")
+		link(rel='stylesheet', href='/stylesheets/responsive.css')
+		meta(name="viewport", content="width=device-width, initial-scale=1, maximum-scale=1")
+	body
+		section#contenido
+			nav#menu
+				ul
+					li
+						a(href="/inicio", title="Inicio") 
+							img(src="/images/inicio.png", alt="Inicio")
+							span
+								| Inicio
+					li(id="menuactivo")
+						a(href="/salas-virtuales", title="Salas Virtuales")
+							img(src="/images/salasvirtualesactivo.png", alt="Salas Virtuales")
+							span
+								| Salas Virtuales
+					li
+						a(href="/biblioteca")
+							img(src="/images/biblioteca.png", alt="Biblioteca")
+							span
+								| Biblioteca
+					li
+						a(href="/perfil")
+							img(src="/images/perfil.png", alt="Perfil", data-usuario="#{usuario.usuario}", id="perfilusuario")
+							span
+								| Perfil
+					li
+						a(href="/reglas")
+							img(src="/images/uso.png")
+							span
+								| Reglas
+					li(class='menubuscar')
+						a(href="#busqueda")
+							img(src="/images/lupa.png", alt="Buscar")
+							span
+								| Buscar
+					li
+						a(href="/salir")
+							img(src="/images/salir.png", alt="Salir")
+							span
+								| Salir
+			aside.flechamenu
+			section#dashboard
+				section#salavirtual
+					h1 Salas Virtuales
+					h2
+						a(href='/salas-virtuales/#{sala.url}', title='#{sala.nombre}', alt='#{sala.nombre}') 
+							|#{sala.nombre}
+						span.fondosala
+					section#chat
+						section#mensajes
+							ul.sms
+						section#usuariosconectados
+							section.cabecerachat
+								img(src='/images/chat.png')
+								|Usuarios
+							ul
+					section#enviarmensaje
+						input(type="text",name="mensaje", id="mensaje", placeholder="Escribe aquí tu mensaje...", data-chat='#{sala.nombre}', data-usuario='#{usuario.usuario}')
+						button(id="enviarchat", data-chat='#{sala.nombre}', data-usuario='#{usuario.usuario}') Enviar
+					section#librosala
+						if (sala.libroActual.length==0)
+							section#sinlibro
+									| Actualmente no se esta leyendo ningún libro, no esperes más y empieza a disfrutar de la sala votando el próximo libro o entrando en el chat de esta sala.
+							br
+							if (activo==1)
+								br
+								a(href='#', title='Proponer libro', class='proponerlibro') Proponer Libro
+								a(href='#', title='Chat', class='entrarchat', data-chat='#{sala.nombre}', data-usuario='#{usuario.usuario}') Ir a Chat
+									span.numerousuarios
+								a(href='/salas-virtuales/#{sala.url}/abandonar', title='Abandonar Sala', class='abandonarsala') Abandonar Sala   
+							else
+								a(href='/salas-virtuales/#{sala.url}/unirse', title='Abandonar Sala', class='unirsesala') Unirse
+							section#librosleidossala
+								aside
+									span.mas
+										|+
+									span.librosleidosanteriormente 
+										|Libros leídos en esta sala
+								if (sala.librosLeidos.length>0)
+									each libro in sala.librosLeidos
+										section.libroleidosala
+											img(src='#{libro.imagen}', title='#{libro.titulo}', alt='#{libro.titulo}')
+								else
+									section.nolibros
+										| Aún no se ha leído ningún libro
+						else
+							section#detallesala
+								section#libroactual
+									a(href='/libros/#{sala.libroActual[0]._id}', title='#{sala.libroActual[0].titulo}', alt='#{sala.libroActual[0].titulo}')
+										img(src='#{sala.libroActual[0].imagen}', title='#{sala.libroActual[0].titulo}', alt='#{sala.libroActual[0].titulo}')
+									span
+										article.tituloactual
+											a(href='/libros/#{sala.libroActual[0]._id}', title='#{sala.libroActual[0].titulo}', alt='#{sala.libroActual[0].titulo}')
+												|#{sala.libroActual[0].titulo}
+										article.autor
+											|#{sala.libroActual[0].autor}
+										br	
+										if (activo==1)
+											a(href='#', title='Proponer libro', class='proponerlibro') Proponer Libro
+											a(href='#', title='Chat', class='entrarchat', data-chat='#{sala.nombre}', data-usuario='#{usuario.usuario}') Ir a Chat
+											a(href='/salas-virtuales/#{sala.url}/abandonar', title='Abandonar Sala', class='abandonarsala') Abandonar Sala   
+										else
+											a(href='/salas-virtuales/#{sala.url}/unirse', title='Abandonar Sala', class='unirsesala') Unirse
+								section#librosleidossala
+									aside
+										span.mas
+											|+
+										span.librosleidosanteriormente 
+											|Libros leídos en esta sala
+									if (sala.librosLeidos.length>0)
+										each libro in sala.librosLeidos
+											section.libroleidosala
+												a(href='/libros/#{libro._id}', title='#{libro.titulo}', alt='#{libro.titulo}')
+													img(src='#{libro.imagen}', title='#{libro.titulo}', alt='#{libro.titulo}')
+												br
+												section.titulolibroleido
+													a(href='/libros/#{libro._id}', title='#{libro.titulo}', alt='#{libro.titulo}')
+														if (libro.titulo.length>15)
+															|#{libro.titulo.substr(0,15)} ...
+														else
+															|#{libro.titulo}
+												section.autorlibroleido
+													|#{libro.autor}
+									else
+											section.nolibros
+												| Aún no se ha leído ningún libro
+
+					section#debate
+						section.cabeceradebate
+							img(src='/images/debate.png')
+							|Grupo debate
+						if(activo==1)
+							form(action='#', method='post', id='formdebate')
+								textarea(id='texto', name='texto', required)
+								span(class='clasifica') Clasifica tu comentario
+									span(aria-hidden="true", class="icon-comment icono", alt="Comentario", title="Comentario")
+									span(aria-hidden="true", class="icon-question icono", alt="Pregunta", title="Pregunta")
+									span(aria-hidden="true", class="icon-right-quote icono", alt="Cita", title="Cita")
+								input(type='hidden', name='usuario', id='usuario', value='#{usuario._id}')
+								input(type='hidden', name='sala', id='sala', value='#{sala._id}')
+								input(type='hidden', name='comentario', id='comentario', value='0')
+								input(type='hidden', name='pregunta', id='pregunta', value='0')
+								input(type='hidden', name='cita', id='cita', value='0')
+								input(type='submit', value='Comentar')
+						else
+							section#formdebate
+								| Únete a la sala y empieza a comentar
+						if (comentarios!=0)
+							section#tablon
+								each comentario in comentarios
+									if(comentario.comentario==1)
+										section.comentario.clascomentario
+											aside.comentariousuario
+												if (comentario.usuario)
+													img(src="/images/#{comentario.usuario.imagen}",title="Escrito por #{comentario.usuario.usuario}", alt="Escrito por #{comentario.usuario.usuario}")
+												else
+													img(src="/images/default.jpg",title="Escrito por desconocido", alt="Escrito por desconocido")
+											aside.comentariocategoria
+												span(aria-hidden="true", class="icon-comment")
+											section.comentariotexto
+												| #{comentario.texto}
+												aside
+													if (activo==1)
+														span(aria-hidden="true", class="icon-reply respondercomentario", data-comentario='#{comentario._id}', alt="Responder", title="Responder")
+													if (comentario.usuario)
+														if (usuario.usuario==comentario.usuario.usuario)
+															a(href="#", title='Borrar comentario', data-comentario='#{comentario._id}', class='borrarcomentariosala') X
+										section.respuestascomentario
+											form(action="#", id="#{comentario._id}",class="formrespuestadebate")
+												textarea(class="respuesta", name="respuesta")
+												input(type='hidden', name='usuariorespuesta', class='usuariorespuesta', value='#{usuario._id}')
+												input(type='hidden', name='comentariorespuesta', class='comentariorespuesta', value='#{comentario._id}')
+												aside
+													input(type="submit", value="Responder")
+											if (comentario.respuestas.length!=0)
+												each respuesta in comentario.respuestas
+													aside.respuestausuario
+														aside.comentariousuario
+															img(src="/images/#{respuesta.imagen}", alt="Respuesta de #{respuesta.usuario}", title="Respuesta de #{respuesta.usuario}")
+														section.comentariotexto
+															| #{respuesta.respuesta}
+														if (respuesta.usuario==usuario.usuario)
+															section.eliminarrespuesta
+																a(href="#", title='Borrar respuesta', data-comentario='#{comentario._id}', data-usuario='#{respuesta.usuario}', data-respuesta='#{respuesta.respuesta}', class='borrarrespuestasala') X
+											else
+												aside.respuestausuario.sinrespuesta
+													|No existen respuestas
+
+									if(comentario.pregunta==1)
+										section.comentario.claspregunta
+											aside.comentariousuario
+												if (comentario.usuario)
+													img(src="/images/#{comentario.usuario.imagen}",title="Escrito por #{comentario.usuario.usuario}", alt="Escrito por #{comentario.usuario.usuario}")
+												else
+													img(src="/images/default.jpg",title="Escrito por desconocido", alt="Escrito por desconocido")
+											aside.comentariocategoria
+												span(aria-hidden="true", class="icon-question")
+											section.comentariotexto
+												| #{comentario.texto}
+												aside
+													if (activo==1)
+														span(aria-hidden="true", class="icon-reply respondercomentario", data-comentario='#{comentario._id}', alt="Responder", title="Responder")
+													if (comentario.usuario)
+														if (usuario.usuario==comentario.usuario.usuario)
+															a(href="#", title='Borrar comentario', data-comentario='#{comentario._id}', class='borrarcomentariosala') X
+										section.respuestaspregunta
+											form(action="#", id="#{comentario._id}", class="formrespuestadebate")
+												textarea(class="respuesta", name="respuesta")
+												input(type='hidden', name='usuariorespuesta', class='usuariorespuesta', value='#{usuario._id}')
+												input(type='hidden', name='comentariorespuesta', class='comentariorespuesta', value='#{comentario._id}')
+												aside
+													input(type="submit", value="Responder")
+											if (comentario.respuestas.length!=0)
+												each respuesta in comentario.respuestas
+													aside.respuestausuario
+														aside.comentariousuario
+															img(src="/images/#{respuesta.imagen}", alt="Respuesta de #{respuesta.usuario}", title="Respuesta de #{respuesta.usuario}")
+														section.comentariotexto
+															| #{respuesta.respuesta}
+														if (respuesta.usuario==usuario.usuario)
+															section.eliminarrespuesta
+																a(href="#", title='Borrar respuesta', data-comentario='#{comentario._id}', data-usuario='#{respuesta.usuario}', data-respuesta='#{respuesta.respuesta}', class='borrarrespuestasala') X
+											else
+												aside.respuestausuario.sinrespuesta
+													|No existen respuestas
+									if(comentario.cita==1)
+										section.comentario.clascita
+											aside.comentariousuario
+												if (comentario.usuario)
+													img(src="/images/#{comentario.usuario.imagen}",title="Escrito por #{comentario.usuario.usuario}", alt="Escrito por #{comentario.usuario.usuario}")
+												else
+													img(src="/images/default.jpg",title="Escrito por desconocido", alt="Escrito por desconocido")
+											aside.comentariocategoria
+												span(aria-hidden="true", class="icon-right-quote")
+											section.comentariotexto
+												| #{comentario.texto}
+												aside
+													if (activo==1)
+														span(aria-hidden="true", class="icon-reply respondercomentario", data-comentario='#{comentario._id}', alt="Responder", title="Responder")
+													if (comentario.usuario)
+														if (usuario.usuario==comentario.usuario.usuario)
+															a(href="#", title='Borrar comentario', data-comentario='#{comentario._id}', class='borrarcomentariosala') X
+										section.respuestascita
+											form(action="#", id="#{comentario._id}", class="formrespuestadebate")
+												textarea(class="respuesta", name="respuesta")
+												input(type='hidden', name='usuariorespuesta', class='usuariorespuesta', value='#{usuario._id}')
+												input(type='hidden', name='comentariorespuesta', class='comentariorespuesta', value='#{comentario._id}')
+												aside
+													input(type="submit", value="Responder")
+											if (comentario.respuestas.length!=0)
+												each respuesta in comentario.respuestas
+													aside.respuestausuario
+														aside.comentariousuario
+															img(src="/images/#{respuesta.imagen}", alt="Respuesta de #{respuesta.usuario}", title="Respuesta de #{respuesta.usuario}")
+														section.comentariotexto
+															| #{respuesta.respuesta}
+														if (respuesta.usuario==usuario.usuario)
+															section.eliminarrespuesta
+																a(href="#", title='Borrar respuesta', data-comentario='#{comentario._id}', data-usuario='#{respuesta.usuario}', data-respuesta='#{respuesta.respuesta}', class='borrarrespuestasala') X
+											else
+												aside.respuestausuario.sinrespuesta
+													|No existen respuestas
+								section#resultadoscomentarios
+								section(id='vermascomentarios')
+									span(aria-hidden='true', class='icon-plus', id="vermascomentariossala", data-skip='3', data-sala='#{sala._id}', data-usuario='#{usuario.usuario}', data-nombresala='#{sala.nombre}')	
+									
+													
+											
+						else
+							section#tablon
+								p Actualmente no existen comentarios.
+					section#proponerlibros
+						br
+						span.mas
+							|+
+						span.proponerlibrocabecera 
+							| Proponer libro
+						br
+						form(action='#', method='post', id='formproponer')
+							input(type='hidden', name='salalibropropuesto', id='salalibropropuesto', value='#{sala._id}')
+							input(type='hidden', name='usuariopropuesto', id='usuariopropuesto', value='#{usuario._id}')
+							input(type='text', name='libroproponer', id='libroproponer', placeholder='Nombre del libro . . .', required)
+							input(type='submit', value='Proponer libro')
+						if (librosPropuestos.length>0)
+							each libro in librosPropuestos
+								section.libropropuesto
+									a(href='/libros/#{libro.libro._id}', title='#{libro.libro.titulo}', alt='#{libro.libro.titulo}')
+										img(src='#{libro.libro.imagen}', title='#{libro.libro.titulo}', alt='#{libro.libro.titulo}')
+									br
+									span.votolibro
+											| #{libro.votos}
+									section.votarlibro
+											button(name='votarlibro', id='votarlibro', data-libro='#{libro.libro._id}', data-sala='#{sala._id}', data-usuario='#{usuario._id}') Votar libro
+									
+						else
+							section.nolibros
+								| No hay libros propuestos, ¿Se te ocurre alguno?	
+			section#lateral
+					section#busqueda
+						form(action='/busqueda', method='post', id='formbuscar')
+							input(type='text', id='buscar', name='buscar', placeholder='Búsqueda')
+							br
+							select(id='categoria', name='categoria')
+								option(value='0') Seleccione Categoría
+								option(value='libro') Título
+								option(value='tematica') Temática
+								option(value='autor') Autor
+								option(value='salavirtual') Sala Virtual
+							br
+							input(type='submit', value='Buscar')
+					section#notificaciones
+						h3 Notificaciones	
+						section.ningunanotificacion
+							|Aquí recibirás las notificaciones en tiempo real mientras estes conectado.
+		script(src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js")
+		script(type="text/javascript", src="http://localhost:3000/socket.io/socket.io.js")
+		script(src='http://code.jquery.com/ui/1.10.2/jquery-ui.js')
+		script(src="/javascripts/funciones.js")

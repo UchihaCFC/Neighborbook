@@ -1,0 +1,152 @@
+doctype 5
+html
+	head
+		title	Perfil
+		meta(charset='utf-8')
+		link(rel='stylesheet', href='/stylesheets/normalize.css')
+		link(rel='stylesheet', href='/stylesheets/estilos.css')
+		link(rel='stylesheet', href='/stylesheets/responsive.css')
+		meta(name="viewport", content="width=device-width, initial-scale=1, maximum-scale=1")
+	body
+		section#contenido
+			nav#menu
+				ul
+					li
+						a(href="/inicio", title="Inicio") 
+							img(src="/images/inicio.png", alt="Inicio")
+							span
+								| Inicio
+					li
+						a(href="/salas-virtuales", title="Salas Virtuales")
+							img(src="/images/salasvirtuales.png", alt="Salas Virtuales")
+							span
+								| Salas Virtuales
+					li
+						a(href="/biblioteca")
+							img(src="/images/biblioteca.png", alt="Biblioteca")
+							span
+								| Biblioteca
+					li(id="menuactivo")
+						a(href="/perfil")
+							img(src="/images/perfilactivo.png", alt="Perfil", data-usuario="#{usuario.usuario}", id="perfilusuario")
+							span
+								| Perfil
+					li
+						a(href="/reglas")
+							img(src="/images/uso.png")
+							span
+								| Reglas
+					li(class='menubuscar')
+						a(href="#busqueda")
+							img(src="/images/lupa.png", alt="Buscar")
+							span
+								| Buscar
+					li
+						a(href="/salir")
+							img(src="/images/salir.png", alt="Salir")
+							span	
+								| Salir
+			aside.flechamenu
+			section#dashboard
+				section#perfil
+					h1	Perfil
+					section.detallesperfil
+						section.usuarioperfil
+							|#{usuario.usuario}
+						section.imagenperfil
+							img(src='/images/#{usuario.imagen}', alt='#{usuario.usuario}', title='#{usuario.usuario}', class='imagenactualusuario', data-imagen='#{usuario.imagen}')
+							if (usuario.imagen=="default.jpg")
+								img(src='/images/circulos.jpg', alt='Seleccionar imagen de círculos para el perfil', title='Seleccionar imagen de círculos para el perfil', class='imagenparaperfil', data-imagen='circulos.jpg', data-usuario="#{usuario.usuario}", id='circulos')
+								img(src='/images/naranja.jpg', alt='Seleccionar imagen de la naranja para el perfil', title='Seleccionar imagen de la naranja para el perfil', class='imagenparaperfil', data-imagen='naranja.jpg', data-usuario="#{usuario.usuario}", id='naranja')
+								img(src='/images/nubes.jpg', alt='Seleccionar imagen de nubes para el perfil', title='Seleccionar imagen de nubes para el perfil', class='imagenparaperfil',, data-imagen='nubes.jpg', data-usuario="#{usuario.usuario}", id='nubes')
+							if (usuario.imagen=="circulos.jpg")
+								img(src='/images/default.jpg', alt='Seleccionar imagen por defecto para el perfil', title='Seleccionar imagen de círculos para el perfil', class='imagenparaperfil', data-imagen='default.jpg', data-usuario="#{usuario.usuario}", id='default')
+								img(src='/images/naranja.jpg', alt='Seleccionar imagen de la naranja para el perfil', title='Seleccionar imagen de la naranja para el perfil', class='imagenparaperfil', data-imagen='naranja.jpg', data-usuario="#{usuario.usuario}", id='naranja')
+								img(src='/images/nubes.jpg', alt='Seleccionar imagen de nubes para el perfil', title='Seleccionar imagen de nubes para el perfil', class='imagenparaperfil', data-imagen='nubes.jpg', data-usuario="#{usuario.usuario}", id='nubes')
+							if (usuario.imagen=="naranja.jpg")
+								img(src='/images/circulos.jpg', alt='Seleccionar imagen de círculos para el perfil', title='Seleccionar imagen de círculos para el perfil', class='imagenparaperfil', data-imagen='circulos.jpg', data-usuario="#{usuario.usuario}", id='naranja')
+								img(src='/images/default.jpg', alt='Seleccionar imagen por defecto para el perfil', title='Seleccionar imagen de la naranja para el perfil', class='imagenparaperfil', data-imagen='default.jpg', data-usuario="#{usuario.usuario}", id='default')
+								img(src='/images/nubes.jpg', alt='Seleccionar imagen de nubes para el perfil', title='Seleccionar imagen de nubes para el perfil', class='imagenparaperfil', data-imagen='nubes.jpg', data-usuario="#{usuario.usuario}", id='nubes')
+							if (usuario.imagen=="nubes.jpg")
+								img(src='/images/circulos.jpg', alt='Seleccionar imagen de círculos para el perfil', title='Seleccionar imagen de círculos para el perfil', class='imagenparaperfil', data-imagen='circulos.jpg', data-usuario="#{usuario.usuario}", id='circulos')
+								img(src='/images/naranja.jpg', alt='Seleccionar imagen de la naranja para el perfil', title='Seleccionar imagen de la naranja para el perfil', class='imagenparaperfil', data-imagen='naranja.jpg', data-usuario="#{usuario.usuario}", id='naranja')
+								img(src='/images/default.jpg', alt='Seleccionar imagen por defecto para el perfil', title='Seleccionar imagen de nubes para el perfil', class='imagenparaperfil', data-imagen='default.jpg', data-usuario="#{usuario.usuario}", id='default')
+					section.formularioperfil
+						span.mas
+								|+
+						span.infocontacto
+							|Información contacto
+						section.datosperfil
+							label(for='usuario') * Nombre usuario
+							input(type='text', name='usuario', id='usuario', value='#{usuario.usuario}', readonly)
+							input(type='hidden', name='usuarioantiguo', id='usuarioantiguo', value='#{usuario.usuario}')
+							label(for='localizacion') Localización
+							if (usuario.localizacion)
+								input(type='text', name='localizacion', id='localizacion', value='#{usuario.localizacion}')
+							else
+								input(type='text', name='localizacion', id='localizacion')
+						section
+							label(for='email') * Email
+							input(type='text', name='email', id='email', value='#{usuario.email}')
+							input(type='hidden', name='emailantiguo', id='emailantiguo', value='#{usuario.email}')
+							label(for='sexo') Sexo
+							select(id='sexo')
+								if (!usuario.sexo)
+									option(value='0') Seleccione sexo
+								if (usuario.sexo=="lector")
+									option(value='lector', checked) Lector
+								else
+									option(value='lector') Lector
+								if (usuario.sexo=='lectora')
+									option(value='lectora', checked) Lectora
+								else
+									option(value='lectora') Lectora
+						section.camposobligatorios
+							| * Campos obligatorios
+						button(class='btformularioperfil botonperfil')
+							| Edición terminada	
+					section.formulariogustos
+						span.mas
+								|+
+						span.infocontacto
+							|Información básica
+						section.datosgustos
+							if(categorias)
+								each categoria in categorias
+									div.categoriaregistro
+										if (usuario.gustos.length>0)
+											- var coincide=0
+											each gusto in usuario.gustos
+												if (gusto==categoria)
+													- coincide = 1
+											if (coincide==0)
+												input(type='checkbox', class='checkbox', id='gustos', name='gustos', value='#{categoria}')
+												|  #{categoria}
+											else
+												input(type='checkbox', class='checkbox', id='gustos', name='gustos', value='#{categoria}', checked)
+												|  #{categoria}
+						button(class='btformulariogustosliterarios botonperfil')
+							| Edición terminada	
+					section.darsedebaja
+						a(href='/baja', title='Darse de baja') Darse de baja
+					
+			section#lateral
+					section#busqueda
+						form(action='/busqueda', method='post', id='formbuscar')
+							input(type='text', id='buscar', name='buscar', placeholder='Búsqueda')
+							br
+							select(id='categoria', name='categoria')
+								option(value='0') Seleccione Categoría
+								option(value='libro') Título
+								option(value='tematica') Temática
+								option(value='autor') Autor
+								option(value='salavirtual') Sala Virtual
+							br
+							input(type='submit', value='Buscar')
+					section#notificaciones
+						h3 Notificaciones	
+						section.ningunanotificacion
+							|Aquí recibirás las notificaciones en tiempo real mientras estes conectado.
+		script(src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js")
+		script(type="text/javascript", src="http://localhost:3000/socket.io/socket.io.js")
+		script(src="/javascripts/funciones.js")			

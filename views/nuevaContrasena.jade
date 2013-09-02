@@ -1,0 +1,31 @@
+doctype 5
+html
+	head
+		title= title
+		meta(charset='utf-8')
+		link(rel='stylesheet', href='/stylesheets/normalize.css')
+		link(rel='stylesheet', href='/stylesheets/index.css')
+		link(rel='stylesheet', href='/stylesheets/responsive.css')
+		meta(name="viewport", content="width=device-width, initial-scale=1, maximum-scale=1")
+	body
+		section#principal
+			img(src='/images/logo.png', alt='Neighborbook, la otra forma de leer.')
+			h1 Neighborbook, la otra forma de leer
+		section#formularios
+			form(action='/finalizar-restablecer-contrasena', id='formlogin', method='post')
+				section.recuperarcontrasena
+					| Recuerde: 
+					br
+					| Contraseña de 7 o más carácteres
+				br
+				input(type='password', name='pass', id='pass', class='input', placeholder='Nueva contraseña', required='required', pattern=".{7,}")
+				br
+				input(type='hidden', name='email', id='email', value='#{email}')
+				input(type='submit', class='enviar', value='Restablecer Contraseña')
+		footer
+			img(src='../images/comparte.png', alt='Comparte')
+			| Comparte
+			img(src='../images/lupa.png', alt='Explora')
+			| Explora
+			img(src='../images/siente.png', alt='Siente')
+			| Siente

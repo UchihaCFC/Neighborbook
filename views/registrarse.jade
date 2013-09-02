@@ -1,0 +1,48 @@
+doctype 5
+html
+	head
+		title= title
+		meta(charset='utf-8')
+		link(rel='stylesheet', href='/stylesheets/normalize.css')
+		link(rel='stylesheet', href='/stylesheets/registrarse.css')
+		link(rel="stylesheet", href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css")
+		link(rel='stylesheet', href='/stylesheets/responsive.css')
+		meta(name="viewport", content="width=device-width, initial-scale=1, maximum-scale=1")
+body
+	h1 Únete y empieza a disfrutar
+	form(action='/finalizar-registro', method='post', id="formpagregistrarse")
+		if errorUsuario==1
+			input(type='text', class='input error', name='usuario', id='usuario', placeholder='El usuario ya existe', required='required')
+		else
+			input(type='text', class='input', name='usuario', id='usuario', value='#{usuario}', placeholder='Nombre de usuario', required='required')
+		br
+		if errorEmail==1
+			input(type='email', class='input error', name='email', id='email', placeholder='El email ya esta asociado a una cuenta', required='required')
+		else
+			input(type='email', class='input', name='email', id='email', value='#{email}', placeholder='Email', required='required')		
+		br
+		input(type='password', class='input', name='pass', id='pass', value='#{pass}', placeholder='Contraseña', required='required')
+		br
+		input(type='text', class='input', name='libro', id='libro', placeholder='Libro que actualmente estas leyendo')
+		br
+		| Gustos literarios:
+		br
+		span.consejo	Añade tus gustos literarios y accede a salas con personas afines
+		br
+		if(categorias)
+			each categoria in categorias
+				div.categoriaregistro
+					input(type='checkbox', class='checkbox', id='gustos', name='gustos', value='#{categoria}')
+					| #{categoria}
+		input(type='submit', class='enviar', value='Finalizar Registro')
+	footer
+			img(src='images/comparte.png', alt='Comparte')
+			| Comparte
+			img(src='images/lupa.png', alt='Explora')
+			| Explora
+			img(src='images/siente.png', alt='Siente')
+			| Siente
+	script(type="text/javascript", src="http://localhost:3000/socket.io/socket.io.js")
+	script(src='//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js')
+	script(src='http://code.jquery.com/ui/1.10.2/jquery-ui.js')
+	script(src='/javascripts/registrarse.js')

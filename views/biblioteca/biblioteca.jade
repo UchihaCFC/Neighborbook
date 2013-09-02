@@ -1,0 +1,221 @@
+doctype 5
+html
+	head
+		title Salas Virtuales
+		meta(charset='utf-8')
+		link(rel='stylesheet', href='/stylesheets/normalize.css')
+		link(rel='stylesheet', href='/stylesheets/estilos.css')
+		link(rel='stylesheet', href='/stylesheets/responsive.css')
+		meta(name="viewport", content="width=device-width, initial-scale=1, maximum-scale=1")
+	body
+		section#contenido
+			nav#menu
+				ul
+					li
+						a(href="/inicio", title="Inicio") 
+							img(src="/images/inicio.png", alt="Inicio")
+							span
+								| Inicio
+					li
+						a(href="/salas-virtuales", title="Salas Virtuales")
+							img(src="/images/salasvirtuales.png", alt="Salas Virtuales")
+							span
+								| Salas Virtuales
+					li(id="menuactivo")
+						a(href="/biblioteca")
+							img(src="/images/bibliotecaactivo.png", alt="Biblioteca")
+							span
+								| Biblioteca
+					li
+						a(href="/perfil")
+							img(src="/images/perfil.png", alt="Perfil", data-usuario="#{usuario.usuario}", id="perfilusuario")
+							span
+								| Perfil
+					li
+						a(href="/reglas")
+							img(src="/images/uso.png")
+							span
+								| Reglas
+					li(class='menubuscar')
+						a(href="#busqueda")
+							img(src="/images/lupa.png", alt="Buscar")
+							span
+								| Buscar
+					li
+						a(href="/salir")
+							img(src="/images/salir.png", alt="Salir")
+							span
+								| Salir
+			aside.flechamenu
+			section#dashboard
+				section#bibliotecaprincipal
+					h1 Biblioteca
+					section#leyenda
+						section.leyendamarcador
+							span(aria-hidden='true', class='icon-bookmark', id='leyendaleyendo')
+							br
+							|Leyendo
+						section.leyendamarcador
+							span(aria-hidden='true', class='icon-bookmark', id='leyendaleer')
+							br
+							|Quiero leer
+						section.leyendamarcador
+							span(aria-hidden='true', class='icon-bookmark', id='leyendaleido')
+							br
+							| Leído 
+					section#detallesbiblioteca
+						section.imagenusuario
+							img(src='/images/#{usuario.imagen}', title='#{usuario.usuario}', alt='#{usuario.usuario}')
+						section.usuarioyresumen
+							span
+								|#{usuario.usuario}
+							span.resumenlibros
+								|Resumen libros
+							aside#droppableleyendo.leyendoresumen.cajetines
+								|#{usuario.leyendo.length}
+							aside#droppableleer.leerresumen.cajetines
+								|#{usuario.leer.length}
+							aside#droppableleidos.leidosresumen.cajetines
+								|#{usuario.leidos.length}
+						section.usodraggable
+							aside.cerrardraggable(alt='Cerrar ayuda', title='Cerrar ayuda')
+								|X
+							img(src='/images/draganddrop.jpg', title='Drag and drop', alt='Drag and drop')
+							p
+								| Puede arrastrar la imagen de los libros a los diferentes cajetines de colores para clasificar de nuevo un libro como leyendo (verde), quieres leer (rojo) y leídos (azul).
+
+
+					section#librosbiblioteca
+						if (usuario.leyendo.length==0 && usuario.leidos.length==0 && usuario.leer.length==0)
+							|Aún no has añadido libros a tu biblioteca, utiliza el buscador situado arriba a la derecha para encontrar tus libros favoritos.
+						else
+							if (usuario.leyendo.length>0)
+								each libro in usuario.leyendo
+									section.libro
+										span(aria-hidden='true', class='icon-bookmark libroleyendo')
+										img(src="#{libro.imagen}", alt='#{libro.titulo}', title='#{libro.titulo}', data-libro='#{libro._id}', data-usuario="#{usuario.usuario}")
+										section.detallelibro
+											a(href='/libros/#{libro._id}', title='#{libro.titulo}')
+												if (libro.titulo.length>20)
+													|#{libro.titulo.substr(0,20)} ...
+												else
+													|#{libro.titulo}
+											section.autorlibrobiblioteca
+												if (libro.autor.length>20)
+													|#{libro.autor.substr(0,20)} ...
+												else
+													|#{libro.autor}
+											a(href='#{libro.urlamazon}', target='_blank', title='Comprar en Amazon', alt='Comprar en Amazon', class='compraramazon')
+												| Comprar en Amazon
+							if (usuario.leer.length>0)
+								each libro in usuario.leer
+									section.libro(data-libro='#{libro._id}', data-usuario="#{usuario.usuario}")
+										span(aria-hidden='true', class='icon-bookmark libroleer')
+										img(src="#{libro.imagen}", alt='#{libro.titulo}', title='#{libro.titulo}', data-libro='#{libro._id}', data-usuario="#{usuario.usuario}")
+										section.detallelibro
+											a(href='/libros/#{libro._id}', title='#{libro.titulo}')
+												if (libro.titulo.length,20)
+													|#{libro.titulo.substr(0,20)} ...
+												else
+													|#{libro.titulo}
+											section.autorlibrobiblioteca
+												if (libro.autor.length,20)
+													|#{libro.autor.substr(0,20)} ...
+												else
+													|#{libro.autor}
+											a(href='#{libro.urlamazon}', target='_blank', title='Comprar en Amazon', alt='Comprar en Amazon', class='compraramazon')
+												| Comprar en Amazon
+							if (usuario.leidos.length>0)
+								each libro in usuario.leidos
+									section.libro(data-libro='#{libro._id}', data-usuario="#{usuario.usuario}")
+										span(aria-hidden='true', class='icon-bookmark libroleido')
+										img(src="#{libro.imagen}", alt='#{libro.titulo}', title='#{libro.titulo}', data-libro='#{libro._id}', data-usuario="#{usuario.usuario}")
+										section.detallelibro
+											a(href='/libros/#{libro._id}', title='#{libro.titulo}')
+												if (libro.titulo.length,20)
+													|#{libro.titulo.substr(0,20)} ...
+												else
+													|#{libro.titulo}
+											section.autorlibrobiblioteca
+												if (libro.autor.length,20)
+													|#{libro.autor.substr(0,20)} ...
+												else
+													|#{libro.autor}
+											a(href='#{libro.urlamazon}', target='_blank', title='Comprar en Amazon', alt='Comprar en Amazon', class='compraramazon')
+												| Comprar en Amazon
+					section#librosleyendo
+						if (usuario.leyendo.length==0)
+							|No tienes ningún libro marcado como leyendo.
+						else
+							each libro in usuario.leyendo
+								section.libro(data-libro='#{libro._id}', data-usuario="#{usuario.usuario}")
+									span(aria-hidden='true', class='icon-bookmark libroleyendo')
+									img(src="#{libro.imagen}", alt='#{libro.titulo}', title='#{libro.titulo}', data-libro='#{libro._id}', data-usuario="#{usuario.usuario}")
+									section.detallelibro
+											a(href='/libros/#{libro._id}', title='#{libro.titulo}')
+												if (libro.titulo.length,20)
+													|#{libro.titulo.substr(0,20)} ...
+												else
+													|#{libro.titulo}
+											section.autorlibrobiblioteca
+												|#{libro.autor}
+											a(href='#{libro.urlamazon}', target='_blank', title='Comprar en Amazon', alt='Comprar en Amazon', class='compraramazon')
+												| Comprar en Amazon			
+					section#librosleer
+						if (usuario.leer.length==0)
+							|Aún no has añadido libros a tu biblioteca, utiliza el buscador situado arriba a la derecha para encontrar tus libros favoritos.
+						else
+							each libro in usuario.leer
+								section.libro(data-libro='#{libro._id}', data-usuario="#{usuario.usuario}")
+									span(aria-hidden='true', class='icon-bookmark libroleer')
+									img(src="#{libro.imagen}", alt='#{libro.titulo}', title='#{libro.titulo}', data-libro='#{libro._id}', data-usuario="#{usuario.usuario}")
+									section.detallelibro
+											a(href='/libros/#{libro._id}', title='#{libro.titulo}')
+												if (libro.titulo.length,20)
+													|#{libro.titulo.substr(0,20)} ...
+												else
+													|#{libro.titulo}
+											section.autorlibrobiblioteca
+												|#{libro.autor}
+											a(href='#{libro.urlamazon}', target='_blank', title='Comprar en Amazon', alt='Comprar en Amazon', class='compraramazon')
+												| Comprar en Amazon
+					section#librosleidos
+						if (usuario.leidos.length==0)
+								|Aún no has añadido libros a tu biblioteca, utiliza el buscador situado arriba a la derecha para encontrar tus libros favoritos.
+							else
+								each libro in usuario.leidos
+									section.libro(data-libro='#{libro._id}', data-usuario="#{usuario.usuario}")
+										span(aria-hidden='true', class='icon-bookmark libroleido')
+										img(src="#{libro.imagen}", alt='#{libro.titulo}', title='#{libro.titulo}', data-libro='#{libro._id}', data-usuario="#{usuario.usuario}")
+										section.detallelibro
+											a(href='/libros/#{libro._id}', title='#{libro.titulo}')
+												if (libro.titulo.length,20)
+													|#{libro.titulo.substr(0,20)} ...
+												else
+													|#{libro.titulo}
+											section.autorlibrobiblioteca
+												|#{libro.autor}	
+											a(href='#{libro.urlamazon}', target='_blank', title='Comprar en Amazon', alt='Comprar en Amazon', class='compraramazon')
+												| Comprar en Amazon	
+					
+			section#lateral
+					section#busqueda
+						form(action='/busqueda', method='post', id='formbuscar')
+							input(type='text', id='buscar', name='buscar', placeholder='Búsqueda')
+							br
+							select(id='categoria', name='categoria')
+								option(value='0') Seleccione Categoría
+								option(value='libro') Título
+								option(value='tematica') Temática
+								option(value='autor') Autor
+								option(value='salavirtual') Sala Virtual
+							br
+							input(type='submit', value='Buscar')
+					section#notificaciones
+						h3 Notificaciones
+						section.ningunanotificacion
+							|Aquí recibirás las notificaciones en tiempo real mientras estes conectado.	
+		script(src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js")
+		script(src="http://code.jquery.com/ui/1.10.3/jquery-ui.js")
+		script(type="text/javascript", src="http://localhost:3000/socket.io/socket.io.js")
+		script(src="/javascripts/funciones.js")

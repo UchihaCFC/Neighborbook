@@ -1,0 +1,60 @@
+body {
+  background: #fff;
+  font-size: 16px;
+}
+h1 {
+  text-align: center;
+}
+#formulario {
+  text-align: center;
+}
+#formulario input {
+  margin: 0.5em 0.4em;
+}
+.centrado {
+  margin: 0 auto;
+  text-align: center;
+  width: 50%;
+}
+.centrado img {
+  width: 50%;
+}
+.centrado form input {
+  margin: 1em;
+}
+.izquierda {
+  margin: 0 auto;
+  text-align: left;
+  width: 50%;
+}
+.editar {
+  color: #333;
+}
+.editar:hover {
+  color: #000;
+}
+.borrar {
+  background-color: #3a77ab;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
+  border-radius: 2px;
+  color: #eee;
+  margin-left: 1.5em;
+  padding: 0.2em;
+  text-decoration: none;
+}
+.sala {
+  border: 1px solid #333;
+  display: inline-block;
+  margin-bottom: 2em;
+  margin-right: 2em;
+  padding: 2em;
+  vertical-align: top;
+  width: 35%;
+}
+.sala h4 {
+  margin: 0;
+  padding: 0;
+}

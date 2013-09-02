@@ -1,0 +1,110 @@
+doctype 5
+html
+	head
+		title= title
+		meta(charset='utf-8')
+		link(rel='stylesheet', href='/stylesheets/normalize.css')
+		link(rel='stylesheet', href='/stylesheets/estilos.css')
+		link(rel='stylesheet', href='/stylesheets/responsive.css')
+		meta(name="viewport", content="width=device-width, initial-scale=1, maximum-scale=1")
+	body
+		section#contenido
+			nav#menu
+				ul
+					li
+						a(href="/inicio", title="Inicio") 
+							img(src="/images/inicio.png", alt="Inicio")
+							span
+								| Inicio
+					li(id="menuactivo")
+						a(href="/salas-virtuales", title="Salas Virtuales")
+							img(src="/images/salasvirtualesactivo.png", alt="Salas Virtuales")
+							span
+								| Salas Virtuales
+					li
+						a(href="/biblioteca")
+							img(src="/images/biblioteca.png", alt="Biblioteca")
+							span
+								| Biblioteca
+					li
+						a(href="/perfil")
+							img(src="/images/perfil.png", alt="Perfil", data-usuario="#{usuario}", id="perfilusuario")
+							span
+								| Perfil
+					li
+						a(href="/reglas")
+							img(src="/images/uso.png")
+							span
+								| Reglas
+					li(class='menubuscar')
+						a(href="#busqueda")
+							img(src="/images/lupa.png", alt="Buscar")
+							span
+								| Buscar
+					li
+						a(href="/salir")
+							img(src="/images/salir.png", alt="Salir")
+							span
+								| Salir
+			aside.flechamenu
+			section#dashboard
+				section#resultados
+					h1.resultadossalas Búsqueda "#{busqueda}"
+					if (resultados.length==0)
+						| No se encontraron salas con esta búsqueda
+					else
+						section.numeroresultados
+							if (totalresultados==1)
+								| Se ha encontrado un único resultado
+							else
+								| Se han encontrado #{totalresultados} resultados
+						section#resultadossalasvirtuales
+							each sala in resultados
+								section.svsalavirtual
+									a(href='/salas-virtuales/#{sala.url}',title='#{sala.nombre}', class='titulosala') #{sala.nombre}
+									span.fondosalas
+									section.detallessala
+										section.salalibrosleidos
+											- librosleidos=1
+											if (sala.libroActual.length>0)
+												section.svlibroactual
+													span(aria-hidden='true', class='icon-bookmark libroleyendo')
+													a(href='/libros/#{sala.libroActual[0]._id}', title='#{sala.libroActual[0].titulo}', id='enlacelibroactual')
+														img(src='#{sala.libroActual[0].imagen}', title='#{sala.libroActual[0].titulo}')
+											else
+												- librosleidos=0
+											if (sala.librosLeidos.length>0)
+												each libro, i in sala.librosLeidos
+													if (i>sala.librosLeidos.length-3)
+														a(href='/libros/#{libro._id}', title='#{libro._id}', class='enlacelibroleidos')
+															img(src='#{libro.imagen}', title='#{libro.titulo}')
+											else
+												- librosleidos=0
+											if (librosleidos==0)
+												span.noleidos
+													| Anteriormente no se han leído libros
+					if (totalresultados.length>8)
+						section(id='vermassalas',data-buscar='#{busqueda}', data-skip='8')
+							span(aria-hidden='true', class='icon-plus', id="vermas")	
+
+					
+			section#lateral
+				section#busqueda
+						form(action='/busqueda', method='post', id='formbuscar')
+							input(type='text', id='buscar', name='buscar', placeholder='Búsqueda', value='#{busqueda}')
+							br
+							select(id='categoria', name='categoria')
+								option(value='0') Seleccione Categoría
+								option(value='libro') Título
+								option(value='tematica') Temática
+								option(value='autor') Autor
+								option(value='salavirtual') Sala Virtual
+							br
+							input(type='submit', value='Buscar')
+					section#notificaciones
+						h3 Notificaciones
+						section.ningunanotificacion
+							|Aquí recibirás las notificaciones en tiempo real mientras estes conectado.	
+		script(src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js")
+		script(type="text/javascript", src="http://localhost:3000/socket.io/socket.io.js")
+		script(src="/javascripts/funciones.js")			

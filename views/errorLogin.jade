@@ -1,0 +1,42 @@
+doctype 5
+html
+	head
+		title= title
+		meta(charset='utf-8')
+		link(rel='stylesheet', href='/stylesheets/normalize.css')
+		link(rel='stylesheet', href='/stylesheets/index.css')
+		link(rel='stylesheet', href='/stylesheets/responsive.css')
+		meta(name="viewport", content="width=device-width, initial-scale=1, maximum-scale=1")
+	body
+		section#principal
+			img(src='/images/logo.png', alt='Neighborbook, la otra forma de leer.')
+			h1 #{title}
+		section#formularios
+			form(action='/login', id='formlogin', method='post')
+				input(type='text', name='usuariologin', id='usuariologin', class='input', placeholder='Nombre de usuario')
+				br
+				input(type='password', name='passlogin', id='passlogin', class='input', placeholder='Contraseña')
+				section#errorLogin
+					| El usuario o la contraseña son erróneas
+				br
+				input(type='submit', class='enviar', value='Entrar')
+				section#opcioneslogin
+					input(type='checkbox', name='recordar', id='recordar')
+					|  Recordar Contraseña
+					br
+					a(href='/recuperar-contrasena', title='Recuperar contraseña') ¿Has olvidado la contraseña?
+			form(action='/registrarse', id='formregistrarse', method='post')
+				input(type="text", class='input', name="usuarioregistrar", id='usuarioregistrar', placeholder='Nombre de usuario')
+				br
+				input(type='email', class='input', name='emailregistrar', id='emailregistrar', placeholder='Email')
+				br
+				input(type='password', class='input', name='passregistrar', id='passregistrar', placeholder='Contraseña')
+				br
+				input(type='submit', class='enviar', value='Registrarse')
+		footer
+			img(src='images/comparte.png', alt='Comparte')
+			| Comparte
+			img(src='images/lupa.png', alt='Explora')
+			| Explora
+			img(src='images/siente.png', alt='Siente')
+			| Siente

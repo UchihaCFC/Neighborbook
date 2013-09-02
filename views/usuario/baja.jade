@@ -1,0 +1,15 @@
+doctype 5
+html
+	head
+		title= title
+		meta(charset='utf-8')
+		link(rel='stylesheet', href='/stylesheets/normalize.css')
+		link(rel='stylesheet', href='/stylesheets/error.css')
+	body
+		section#principalbaja
+			a(href='/', title='Página principal Neighborbook')
+				img(src='/images/logo.png', alt='Neighborbook, la otra forma de leer.')
+			h1 #{title}
+			p
+				|Recuerde que al darse de baja, se eliminará por completo tu perfil, guardando únicamente los comentarios realizados en las diferentes salas virtuales y fichas de los libros.
+			a(href='/confirmar-baja', title='Confirmar Baja') Confirmar Baja

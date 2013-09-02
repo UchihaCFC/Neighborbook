@@ -1,0 +1,96 @@
+::-webkit-input-placeholder {
+  color: #eee;
+}
+::-moz-placeholder {
+  color: #eee;
+}
+/* firefox 19+ */
+:-ms-input-placeholder {
+  color: #eee;
+}
+/* ie */
+input:-moz-placeholder {
+  color: #eee;
+}
+body {
+  font: 16px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+a {
+  color: #00b7ff;
+  text-decoration: none;
+}
+footer {
+  background-color: #e5e5e5;
+  color: #757c82;
+  margin-top: 1.5em;
+  font-weight: bold;
+  padding: 1.5em 0;
+  text-align: center;
+  width: 100%;
+}
+footer img {
+  margin-left: 1.5em;
+  margin-right: 0.5em;
+  vertical-align: middle;
+  width: 35px;
+}
+form {
+  color: #2b3a47;
+  margin: 0 auto;
+  width: 60%;
+}
+h1 {
+  color: #7b7776;
+  text-align: center;
+}
+.categoriaregistro {
+  display: inline-block;
+  vertical-align: margin-bottom;
+  width: 32%;
+}
+.checkbox {
+  background-color: #8995a2;
+  border: 0;
+  margin-left: 1.2em;
+  margin-top: 1.2em;
+  margin-right: 0.3em;
+}
+.consejo {
+  font-size: 0.8em;
+  font-weight: bold;
+  color: #333;
+}
+.enviar {
+  background-color: #3a77ab;
+  border: 0;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+  color: #eee;
+  display: block;
+  margin-top: 1.5em;
+  padding: 0.2em 0.5em;
+}
+.input {
+  background-color: #8995a2;
+  border: 0px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+  color: #eee;
+  margin-bottom: 1.5em;
+  padding: 0.2em 0.5em;
+  width: 100%;
+}
+.error {
+  border: 2px solid #f00;
+}

@@ -1,0 +1,116 @@
+body {
+  font: 16px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+a {
+  color: #00b7ff;
+  text-decoration: none;
+}
+footer {
+  background-color: #e5e5e5;
+  color: #757c82;
+  font-weight: bold;
+  margin-top: 2.5em;
+  padding: 1.5em 0;
+  text-align: center;
+  width: 100%;
+}
+footer img {
+  margin-left: 1.5em;
+  margin-right: 0.5em;
+  vertical-align: middle;
+  width: 35px;
+}
+#errorLogin {
+  background: #dc0a0a;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+  color: #fff;
+  font-size: 0.7em;
+  margin-bottom: 0.8em;
+  padding: 0.6em;
+  width: 240px;
+}
+#formlogin {
+  border-bottom: 1px solid #c1cdd7;
+  padding-bottom: 1.5em;
+}
+#formregistrarse {
+  padding-top: 1.5em;
+}
+#formularios {
+  display: inline-block;
+  margin-top: 10%;
+  text-align: left;
+  vertical-align: top;
+  width: 240px;
+}
+#mensaje,
+.recuperarcontrasena {
+  background: #2eaf08;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+  color: #fff;
+  font-size: 0.7em;
+  margin-bottom: 0.8em;
+  margin-top: 0.5em;
+  padding: 0.5em;
+  width: 240px;
+}
+#opcioneslogin {
+  display: inline-block;
+  font-size: 0.8em;
+  margin-left: 0.3em;
+  text-align: center;
+  vertical-align: bottom;
+}
+#passlogin {
+  margin-bottom: 0.7em;
+}
+#principal {
+  display: inline-block;
+  margin-top: 10%;
+  text-align: center;
+  vertical-align: top;
+  width: 65%;
+}
+#principal img {
+  width: 250px;
+}
+#principal h1 {
+  color: #7b7776;
+}
+.enviar {
+  background-color: #3a77ab;
+  border: 0;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+  color: #eee;
+  padding: 0.2em 0.5em;
+}
+.input {
+  background-color: #8995a2;
+  border: 0px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+  color: #eee;
+  margin-bottom: 1.5em;
+  padding: 0.2em 0.5em;
+  width: 100%;
+}

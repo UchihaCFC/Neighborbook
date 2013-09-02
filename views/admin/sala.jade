@@ -1,0 +1,23 @@
+html
+	head
+		title= title
+		meta(charset='utf-8')
+		link(rel='stylesheet', href='/stylesheets/normalize.css')
+		link(rel='stylesheet', href='/stylesheets/admin.css')
+	body
+		section.izquierda
+			h1 #{title}
+			section
+				if(libros.length==0)
+					| No existen libros propuestos actualmente
+				else
+					each libro in libros
+						section.libropropuesto
+							img(src='#{libro.libro.imagen}', title='#{libro.libro.titulo}', alt='#{libro.libro.titulo}')
+							span.votolibro
+								| #{libro.votos}
+							section.establecer
+								form(id='formestablecer', action='/administrador/salas-virtuales/establecer', method='post')
+									input(type='hidden', id='id_libro', name='id_libro', value='#{libro.libro._id}')
+									input(type='hidden', id='sala', name='sala', value='#{title}')
+									input(type="submit", value='establecer')

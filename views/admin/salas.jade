@@ -1,0 +1,34 @@
+html
+	head
+		title= title
+		meta(charset='utf-8')
+		link(rel='stylesheet', href='/stylesheets/normalize.css')
+		link(rel='stylesheet', href='/stylesheets/admin.css')
+	body
+		section.izquierda
+			h1 #{title}
+			section#formulario
+				form(action="/administrador/salas-virtuales/nueva", method="post")
+					label Nombre
+					input(type="text", name="nombre", id="nombre")
+					br
+					select(name='categorias[]', id='categorias', multiple='multiple')
+						if(categorias)
+							each categoria in categorias
+								option(value='#{categoria}') #{categoria}
+					br
+					input(type="submit", value="Añadir")
+			section
+				if(salas==0)
+					| No existen salas actualmente
+				else
+					each sala in salas
+						section.sala
+							h4 #{sala.nombre}
+							br
+							if(typeof(sala.libroActual)!=0)
+								|Libro Actual: #{sala.libroActual}
+								br
+								a(href='/administrador/salas-virtuales/#{sala.url}') Ir a la Sala
+							else
+								| No están leyendo ningún libro

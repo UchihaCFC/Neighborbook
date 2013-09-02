@@ -1,0 +1,2091 @@
+@import "iconfont.styl"
+
+@font-face {
+    font-family: 'allerdisplay';
+    src: url('../fonts/aller_rg-webfont.eot');
+    src: url('../fonts/aller_rg-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/aller_rg-webfont.woff') format('woff'),
+         url('../fonts/aller_rg-webfont.ttf') format('truetype'),
+         url('../fonts/aller_rg-webfont.svg#allerregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'alleritalic';
+    src: url('../fonts/aller_it-webfont.eot');
+    src: url('../fonts/aller_it-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/aller_it-webfont.woff') format('woff'),
+         url('../fonts/aller_it-webfont.ttf') format('truetype'),
+         url('../fonts/aller_it-webfont.svg#alleritalic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'allerbold';
+    src: url('../fonts/aller_bd-webfont.eot');
+    src: url('../fonts/aller_bd-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/aller_bd-webfont.woff') format('woff'),
+         url('../fonts/aller_bd-webfont.ttf') format('truetype'),
+         url('../fonts/aller_bd-webfont.svg#allerbold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face
+    font-family: 'ambleregular';
+    src: url('../fonts/amble-regular-webfont.eot');
+    src: url('../fonts/amble-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/amble-regular-webfont.woff') format('woff'),
+         url('../fonts/amble-regular-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
+vendor(prop, args)
+    -webkit-{prop} args
+    -moz-{prop} args
+    -ms-{prop} args
+    -o-{prop} args
+    {prop} args
+
+border-radius()
+    vendor('border-radius', arguments)
+
+box-sizing()
+	vendor('box-sizing', arguments)
+
+transition()
+	vendor('transition', arguments)
+
+box-shadow()
+	vendor('box-shadow', arguments)
+
+body
+	background-color #f1f1f1
+	//font 16px "allerdisplay"
+	font-family allerdisplay
+	font-size 16px
+	font-weight normal
+	height 100%
+	padding 0 0 1.5em 0
+
+input, select
+	box-sizing(border-box)
+	font-family Verdana
+	font-size 0.8em
+	padding 0.2em
+
+textarea
+	box-sizing(border-box)
+	font-family Verdana
+	font-size 0.8em
+	padding 0.75em
+h1
+	box-sizing(border-box)
+
+#biblioteca 
+	h1
+		border-bottom solid 5px #48ea17
+	.recomendadosinicio
+		margin 1.5em 0
+		.maslibrosrecomendados
+			color #909090
+			font-family allerdisplay
+			font-size 1.2em
+			font-weight normal
+			vertical-align middle
+		.recomendado
+			display inline-block
+			margin 1em 0.2em
+			vertical-align bottom
+			img
+				border 1px solid #d0d0d0
+				margin-right 2px
+				padding 2px
+				width 65px
+
+#contenido
+	margin-top 2em
+
+#dashboard
+	background-color #fff
+	border-radius(0.25em)
+	border 1px solid #ddd
+	box-shadow: 0px 0px 10px 0px #ccc inset,
+				0 0 5px 0 #666;
+	-moz-box-shadow: 0px 0px 10px 0px #ccc inset,
+				0 0 5px 0 #666;
+	-webkit-box-shadow: 0px 0px 10px 0px #ccc inset,
+				0 0 5px 0 #666;
+	-ms-box-shadow: 0px 0px 10px 0px #ccc inset,
+				0 0 5px 0 #666;
+	-o-box-shadow: 0px 0px 10px 0px #ccc inset,
+				0 0 5px 0 #666;
+	display inline-block
+	min-height 600px
+	vertical-align top
+	width 70%
+
+#lateral
+	display inline-block
+	margin-left 1em
+	vertical-align top
+	width 243px
+	#busqueda
+		background-color #fff
+		border-radius(0.25em)
+		border 2px solid #ebeaea
+		box-sizing(border-box)
+		margin 0 0 1em 0
+		padding 1em 0.8em
+		text-align right
+		width 100%
+		#busquedaerror
+			color #f00
+			display block
+			margin left
+			font-size 0.8
+			font-weight bold
+		input[type='text'], select
+			background-color #b3b4b8
+			border 0
+			border-radius(0.25em)
+			box-sizing(border-box)
+			color #fff
+			font-size 0.85em
+			margin 0 0 1.5em 0
+			padding 0.2em 0.5em
+			width 100%
+		input[type='select']
+			background-color #b3b4b8
+			border 0
+			border-radius(0.25em)
+			box-sizing(border-box)
+			color #fff
+			font-size 0.85em
+			margin 0 0 1.5em 0
+			padding 0.2em 0.5em
+			width 100%
+		input[type='submit']
+			background-color #fff
+			border 1px solid #c9c9c9
+			border-radius(0.25em)
+			box-sizing(border-box)
+			color #586c7d
+			margin-bottom 0.5em
+			font-size 0.8em
+			padding 0.2em 0.6em
+			text-align center
+			text-decoration none
+			&:hover
+				background: -moz-linear-gradient(top, #fff, #eee);/* F 3.6+ */
+				background: -ms-linear-gradient(top, #fff, #eee);/* IE 10+ */
+				background: -webkit-linear-gradient(top, #fff, #eee);/* FF 3.6+ */
+				background: -o-linear-gradient(top, #fff, #eee);/* Safari 5.1+, Chrome 10+ */
+				background: linear-gradient(top, #fff, #eee);/* ESTILO ESTANDAR */
+	#notificaciones
+		background-color #fff
+		border-radius(0.25em)
+		border 2px solid #ebeaea
+		box-sizing(border-box)
+		padding 1em 0.8em
+		width 100%
+		h3
+			color #999
+			font-size 1.4em
+			font-style italic
+			font-family ambleregular
+			font-weight normal
+			margin 0.1em 0 
+			padding-left 1em
+			text-align left
+		.ningunanotificacion
+			color #999
+			margin 2em 0
+			font-size: 0.8em
+
+
+
+#menu
+	display inline-block
+	margin-top 4em
+	vertical-align top
+	width 7.5%
+	ul
+		padding 0
+		li
+			margin 0.75em 0
+			width 100%
+			span
+				display block
+		.menubuscar
+			display none
+	#menuactivo
+		background-color #d2d6da
+
+#menu img
+	width 60%
+
+#menu li
+	list-style none
+	text-align center
+	a
+		color #333
+		font-size 0.8em
+		text-decoration none
+
+#notificaciones h2
+	font-family "Trebuchet MS", "Verdana"
+	font-size 0.85em
+	font-style italic
+	padding 0.4em
+	text-align center
+	width 100%
+
+#salasvirtuales, #biblioteca
+	border 1px solid #d0d0d0
+	box-sizing(border-box)
+	border-radius(0.25em)
+	display inline-block
+	margin 0.75em 1em 0.75em 1.2em
+	vertical-align top
+	width 425px
+	.contenidosalasvirtuales, .contenidobiblioteca
+		padding 0 1em 0.2em 1.5em
+	.contenidobiblioteca
+		padding 0 1em 0.2em 2.8em
+
+#salasvirtuales h1, #biblioteca h1
+	border-bottom solid 1px #999999
+	box-sizing(border-box)
+	color #999999
+	font-family ambleregular
+	font-style italic
+	font-weight normal
+	padding 0 0 0.2em 1.15em
+	width 100%
+
+#salasvirtuales 
+	.massalasvirtuales, .masnotificacionessala 
+		color #909090
+		font-family allerdisplay
+		font-size 1.2em
+		font-weight normal
+		vertical-align middle
+	.iniciosala
+		margin 0.2em 0em 2em 4em
+		font-size 0.8em
+
+.anadirlibro
+	background-color #eee
+	opacity 0.9
+	text-align center
+	transition(all ease 1s)
+	z-index 10
+	.libroleyendo, .libroquieroleer, .libroleido
+		border-radius(50%)
+		box-sizing(border-box)
+		cursor pointer
+		display inline-block
+	.libroleyendo
+		background-color #44d833
+	.libroquieroleer
+		background-color #f72e2e
+	.libroleido
+		background-color #278bd9
+
+.flechamenu
+	background-image url('/images/flechamenu.png')
+	height 63px
+	position absolute
+	width 26px
+	z-index 1000
+
+.leyendo
+	display inline-block
+	margin-right 1em
+	text-align left
+	vertical-align top
+	width 150px
+	&:hover .anadirlibro
+		width 80%
+
+.leyendo img
+	border 2px solid #44d833
+	padding 2px
+	width 100%
+
+.leidos
+	display inline-block
+	margin-right 1em
+	text-align left
+	vertical-align bottom
+	width 180px
+
+.leidos section
+	display block
+
+
+
+.leidos section img.libroleido
+	border 2px solid #0b67b8
+	margin-right 0.5em
+	padding 2px
+	width 65px
+
+.leidos section img.libroleer
+	border 2px solid #f72e2e
+	margin-right 0.5em
+	padding 2px
+	width 65px
+
+#leyenda
+		text-align right
+		margin-top -4px
+		margin-bottom 1.5em
+		.leyendamarcador
+			display inline-block
+			font-size 0.55em
+			margin-right 2em
+			text-align center
+			vertical-align top
+			width 45px
+			span
+				font-size 2.7em
+			#leyendaleyendo
+				color #48ea17
+			#leyendaleido
+				color #278bd9
+			#leyendaleer
+				color #f72e2e
+
+//sala virtual
+#debate, #librospropuestos
+	margin-left 2em
+
+#librosala, #proponerlibros
+	box-sizing(border-box)
+	display inline-block
+	margin-right 1.5em
+	padding 0.7em 0.7em 0.7em 0
+	vertical-align top
+	width 45%
+	#sinlibro
+		font-size 0.8em
+
+#debate
+	background-color #fff
+	box-sizing(border-box)
+	border 1px solid #999
+	border-radius(0.25em)
+	box-shadow: 0px 0px 6px #777,
+				0px 0px 4px #999 inset;
+	-moz-box-shadow: 0px 0px 6px #777,
+				0px 0px 4px #999 inset;
+	-webkit-box-shadow: 0px 0px 6px #777,
+				0px 0px 4px #999 inset;
+	-o-box-shadow: 0px 0px 6px #777,
+				0px 0px 4px #999 inset;
+	-ms-box-shadow: 0px 0px 6px #777,
+				0px 0px 4px #999 inset;
+	display inline-block
+	padding 0.35em 0 0.35em 0
+	vertical-align top
+	width 45%
+	.cabeceradebate
+		img
+			display inline-block
+			vertical-align middle
+		border 2px solid #d9d6d7
+		border-radius(0.25em 0.25em 0 0)
+		background: -moz-linear-gradient(top, #f1f1f1, #e0d7d7);/* F 3.6+ */
+		background: -ms-linear-gradient(top, #f1f1f1, #e0d7d7);/* IE 10+ */
+		background: -webkit-linear-gradient(top, #f1f1f1, #e0d7d7);/* FF 3.6+ */
+		background: -o-linear-gradient(top, #f1f1f1, #e0d7d7);/* Safari 5.1+, Chrome 10+ */
+		background: linear-gradient(top, #f1f1f1, #e0d7d7);/* ESTILO ESTANDAR */
+		box-sizing(border-box)
+		color #999
+		font-family alleritalic
+		font-size 1.5em
+		font-weight bold
+		height 60px
+		padding 10px 0 15px 1em
+		margin 0 auto
+		width 97%
+	#formdebate
+		background-color #f5f5f5
+		box-sizing(border-box)
+		border 2px solid #d9d6d7
+		margin 0 auto
+		padding 1.5em
+		width 97%
+		.error
+			background-color #f00
+			border-radius(0.25em)
+			color #fff
+			display block
+			font-size 0.8em
+			margin-bottom 1em
+			padding 0.7em
+			text-align center
+		textarea
+			border 1px solid #bebebe
+			border-radius(0.5em)
+			box-shadow(0px 0px 4px #9fe9f6)
+			display block
+			height 75px
+			margin-bottom 0.5em
+			width 100%
+		input[type='submit']
+			background-color #f6f6f6
+			border 1px solid #c9c9c9
+			border-radius(0.25em)
+			box-sizing(border-box)
+			color #586c7d
+			display inline-block
+			font-size 0.75em
+			margin-bottom 0.5em
+			padding 0.2em 0.2em
+			text-align center
+			vertical-align middle
+			width 25%
+			&:hover
+				background: -moz-linear-gradient(top, #fff, #eee);/* F 3.6+ */
+				background: -ms-linear-gradient(top, #fff, #eee);/* IE 10+ */
+				background: -webkit-linear-gradient(top, #fff, #eee);/* FF 3.6+ */
+				background: -o-linear-gradient(top, #fff, #eee);/* Safari 5.1+, Chrome 10+ */
+				background: linear-gradient(top, #fff, #eee);/* ESTILO ESTANDAR */
+		.icono
+			cursor pointer
+			margin-left 0.6em
+			font-size  1.5em
+		.clasifica
+			color #888
+			display inline-block
+			font-size 0.75em
+			width 75%
+	#tablon
+		background-color #f5f5f5
+		box-sizing(border-box)
+		border 2px solid #d9d6d7
+		border-radius(0 0 0.5em 0.5em)
+		margin 0 auto
+		padding 1.5em
+		width 97%
+
+.abandonarsala, .unirsesala, .entrarchat, .proponerlibro
+	background-color #f6f6f6
+	border 1px solid #c9c9c9
+	border-radius(0.25em)
+	box-sizing(border-box)
+	color #909090
+	display block
+	font-size 0.85em
+	font-family allerdisplay
+	font-weight normal
+	margin-bottom 0.5em
+	padding 0.5em 0.2em
+	text-align center
+	text-decoration none
+	width 125px
+
+.abandonarsala:hover, .unirsesala:hover, .entrarchat:hover, .proponerlibro:hover
+	background: -moz-linear-gradient(top, #fff, #eee);/* F 3.6+ */
+	background: -ms-linear-gradient(top, #fff, #eee);/* IE 10+ */
+	background: -webkit-linear-gradient(top, #fff, #eee);/* FF 3.6+ */
+	background: -o-linear-gradient(top, #fff, #eee);/* Safari 5.1+, Chrome 10+ */
+	background: linear-gradient(top, #fff, #eee);/* ESTILO ESTANDAR */
+
+
+#salavirtual
+	box-sizing(border-box)
+	display block
+	margin 0 auto
+	padding 0.7em
+	width 95%
+	h1
+		border-bottom solid 1px #999999
+		color #999999
+		font-family ambleregular
+		font-style italic
+		font-weight normal
+		padding-bottom 0.2em
+		width 100%
+	h2
+		margin 0
+		padding 0
+		a
+			color #fff
+			background-color #A7AEBE
+			box-sizing(border-box)
+			display inline-block
+			height 32px
+			font-size 0.75em
+			padding-left 1.3em
+			padding-right 0.5em
+			padding-top 6px
+			text-decoration none
+			&:hover
+				opacity 0.8
+			&:hover + .fondosala
+				opacity 0.8
+		.fondosala
+			background-image url('../images/fondotitulosala.png')
+			background-position right
+			background-repeat no-repeat
+			display inline-block
+			height 32px
+			margin-top 0px
+			vertical-align top
+			width 16px
+
+//chat
+#chat
+	display none
+	margin-top 1.5em
+	width 100%
+	#mensajes
+		border 1px solid #d9d6d7
+		border-radius(0.5em)
+		box-sizing(border-box)
+		display inline-block
+		height 400px
+		margin-right 2%
+		padding 1.5em
+		vertical-align top
+		width 76%
+		ul
+			margin 0
+			padding 0
+			li
+				list-style none
+				font-size 0.85em
+				.usu
+					color #0b67b8
+					font-weight bold
+				.usudesconectado
+					color #FF0000
+					font-weight bold
+
+	#usuariosconectados
+		border 1px solid #d9d6d7
+		border-radius(0.5em)
+		box-sizing(border-box)
+		display inline-block
+		height 400px
+		vertical-align top
+		width 20%
+		.cabecerachat
+			color #999
+			border-bottom 1px solid #d0d0d0
+			font-family alleritalic
+			font-size 1.5em
+			font-weight bold
+			text-align left
+			padding 0.2em 0 0 0.2em
+			img
+				vertical-align middle
+				width 40px
+		ul
+			margin 0.7em 0 0 0
+			padding 0.5em 1em
+			li
+				list-style none
+				font-size 0.95em
+				&:first-letter
+					text-transform capitalize
+				.usu
+					color #4ad422
+					font-weight bold
+
+#enviarmensaje
+	display none
+	margin-top 1em
+	text-align right
+	width 76%
+	input[type="text"]
+		border 1px solid #d0d0d0
+		box-shadow(0px 0px 4px #9fe9f6)
+		width 100%
+	button
+		background-color #f6f6f6
+		border 1px solid #c9c9c9
+		border-radius(0.25em)
+		box-sizing(border-box)
+		color #586c7d
+		font-size 0.85em
+		display inline
+		margin 1em 0
+		padding 0.3em 2em
+		text-align center
+		&:hover
+			background: -moz-linear-gradient(top, #fff, #eee);/* F 3.6+ */
+			background: -ms-linear-gradient(top, #fff, #eee);/* IE 10+ */
+			background: -webkit-linear-gradient(top, #fff, #eee);/* FF 3.6+ */
+			background: -o-linear-gradient(top, #fff, #eee);/* Safari 5.1+, Chrome 10+ */
+			background: linear-gradient(top, #fff, #eee);/* ESTILO ESTANDAR */
+
+//comentarios
+.comentario
+	border-radius(0.25em)
+	box-sizing(border-box)
+	box-shadow(0px 3px 3px #333)
+	margin 1em auto 3px auto
+	padding 0.5em
+	width 97%
+	aside
+		color #fff
+		display inline-block
+		font-size 1.5em
+		margin-right 0.5em
+		vertical-align middle
+		width 15%
+		img
+			border-radius(0.2em)
+			width 100%
+	.comentariotexto
+		display inline-block
+		font-size 0.8em
+		vertical-align middle
+		width 60%
+		aside
+			color #333
+			display block
+			font-size 1em
+			text-align right
+			width 100%
+			a
+				color #333
+				display inline-block
+				margin-left 0.8em
+				font-family verdana
+				font-size 0.9em
+				font-weight bold
+				text-decoration none
+				vertical-align middle
+			span
+				display inline-block
+				cursor pointer
+				vertical-align middle
+
+.clascomentario
+	background-color #BFDAE1
+.claspregunta
+	background-color #aae2b1
+.clascita
+	background-color #e2aaaa
+
+.respuestascomentario
+	border 1px solid #508E9D
+
+.respuestascita
+	border 1px solid #c74d4d
+
+.respuestaspregunta
+	border 1px solid #3dbb4d
+
+.respuestascomentario, .respuestascita, .respuestaspregunta
+	background-color #fff
+	border-top 0px
+	border-radius(0em 0em 0.25em 0.25em)
+	box-sizing(border-box)
+	font-size 0.8em
+	margin 0 auto 0.5em auto
+	padding 0.5em
+	width 90%
+	form
+		height 0px
+		margin 0 auto
+		overflow hidden
+		transition(1s ease all)
+		width 95%
+		textarea
+			border 1px solid #333
+			border-radius(0.5em)
+			box-sizing(border-box)
+			display block
+			height 70px
+			margin-bottom 0.5em
+			max-width 100%
+			width: 100%
+		aside
+			display block
+			text-align right
+			width 100%
+			input
+				background-color #333
+				border 0
+				border-radius(0.25em)
+				color #fff
+
+
+
+.respuestausuario
+	border-top 1px solid #333
+	margin 0.2em auto
+	padding 0.8em 0 0.4em 0
+	aside
+		color #fff
+		display inline-block
+		font-size 1.5em
+		margin-right 0.5em
+		vertical-align middle
+		width 15%
+		img
+			border 1px solid #333
+			border-radius(0.2em)
+			width 100%
+	.comentariotexto
+		display inline-block
+		font-size 0.85em
+		vertical-align middle
+		width 60%
+	.eliminarrespuesta
+		text-align right
+		a
+			color #333
+			font-family verdana
+			font-size 0.9em
+			font-weight bold
+			text-decoration none
+.sinrespuesta
+	padding-left 0.5em
+
+//notificaciones
+.notificacion
+	box-sizing(border-box)
+	font-size 0.75em
+	margin 0.35em
+	padding 0.5em
+	width 100%
+	&:hover
+		background-color #eee
+	.notificacionsala
+		color #FF0000
+		font-weight bold
+		a
+			color #278bd9
+			text-decoration none
+	.usuarionotificacion
+		color #0b67b8
+		font-weight bold
+
+.salanotificacion
+	border-left 3px solid #FF0000
+
+//notificaciones pagina inicial
+.notificacioninicio
+	box-sizing(border-box)
+	margin-bottom 1em
+	padding 0.2em 0em 0em 0
+	.nombresala
+		a
+			box-sizing(border-box)
+			border-bottom 1px solid #d0d0d0
+			color #999
+			display block
+			margin 0.2em auto 0.5em auto
+			padding 0 0 0.25em 2.5em
+			text-decoration none
+			text-transform uppercase
+			width 94%
+			&:hover
+				color #555
+	.accion
+		border-bottom 1px solid #ddd
+		display block
+		margin 0 auto
+		padding 0em 0em 1em 0
+		width 94%
+		.tipo
+			color #888
+			display inline-block
+			font-size 1.2em
+			text-align center
+			vertical-align middle
+			width 30px
+		.infonotificacion
+			color #999
+			display inline-block
+			margin-left 0.5em
+			vertical-align middle
+			width 300px
+			.acto
+				font-size 0.8em
+			.usu
+				color #333
+				font-weight bold
+			.textonotificacion
+				color #333
+				display block
+
+//proponer libros
+#proponerlibros
+	display none
+	margin -4.5em 0 0 3.5em
+	.proponerlibrocabecera
+		color #909090
+		font-family allerdisplay
+		font-size 1.2em
+		font-weight normal
+		vertical-align middle
+	#formproponer
+		box-sizing(border-box)
+		padding 1.5em
+		input[type=text]
+			background-color #fff
+			border 1px solid #d4d1d2
+			border-radius(0.25em)
+			box-sizing(border-box)
+			display block
+			font-size 0.85em
+			margin-bottom 1.5em
+			padding 0.2em 0.3em
+			width 100%
+		input[type=submit]
+			background-color #f6f6f6
+			border 1px solid #c9c9c9
+			border-radius(0.25em)
+			box-sizing(border-box)
+			color #586c7d
+			font-size 0.85em
+			display block
+			margin-bottom 0.5em
+			padding 0.3em 2em
+			text-align center
+			&:hover
+				background: -moz-linear-gradient(top, #fff, #eee);/* F 3.6+ */
+				background: -ms-linear-gradient(top, #fff, #eee);/* IE 10+ */
+				background: -webkit-linear-gradient(top, #fff, #eee);/* FF 3.6+ */
+				background: -o-linear-gradient(top, #fff, #eee);/* Safari 5.1+, Chrome 10+ */
+				background: linear-gradient(top, #fff, #eee);/* ESTILO ESTANDAR */
+		.ok
+			color #2bab04
+			display block
+			box-sizing(border-box)
+			font-size 0.8em
+			padding 0.8em
+		.errorproponer
+			color #f00
+			display block
+			box-sizing(border-box)
+			font-size 0.8em
+			padding 0.8em
+			display block
+	.nolibros
+		color #333
+		font-size 0.9em
+		font-style italic
+		margin-top 1.2em
+		text-align center
+
+	.libropropuesto
+		display inline-block
+		padding-left 1.5em
+		width 26%
+		img
+			width 100%
+		.votolibro
+			background-color #fff
+			border-radius(9px)
+			border 1px solid #999
+			color #333
+			display block
+			height 18px
+			text-align center
+			width 18px
+		.votarlibro
+			display block
+			margin 4px 0
+			vertical-align middle
+			width 100%
+			button
+				background-color #f6f6f6
+				border 1px solid #c9c9c9
+				border-radius(0.25em)
+				box-sizing(border-box)
+				color #586c7d
+				display block
+				font-size 0.75em
+				margin-bottom 0.5em
+				padding 0.3em 0.2em
+				text-align center
+				text-decoration none
+				width 100%
+				&:hover
+					background: -moz-linear-gradient(top, #fff, #eee);/* F 3.6+ */
+					background: -ms-linear-gradient(top, #fff, #eee);/* IE 10+ */
+					background: -webkit-linear-gradient(top, #fff, #eee);/* FF 3.6+ */
+					background: -o-linear-gradient(top, #fff, #eee);/* Safari 5.1+, Chrome 10+ */
+					background: linear-gradient(top, #fff, #eee);/* ESTILO ESTANDAR */
+
+//listado de salas virtuales
+.svsalavirtual
+	box-sizing(border-box)
+	display inline-block
+	margin 0 1.5em 1.5em 0
+	padding-top 1em
+	vertical-align top
+	width 395px
+	.detallessala
+		.separacion
+			border-bottom 1px solid #d0d0d0
+			margin 0 auto
+			width 90%
+		.salalibrosleidos
+			padding-top 1em
+			.mas
+				border-radius(50%)
+				border 1px solid #909090
+				color #909090
+				display inline-block
+				font-size 1.5em
+				height 18px
+				line-height 18px
+				margin-right 0.3em
+				text-align center
+				vertical-align middle
+				width 18px
+			.librosleidosanteriormente
+				color #909090
+				display inline-block
+				font-family allerdisplay
+				font-size 1em
+				font-weight normal
+				vertical-align middle
+			.enlacelibroleidos
+				display inline-block
+				margin-right 0.5em
+				vertical-align bottom
+				width 75px
+				img
+					box-sizing(border-box)
+					border 1px solid #d0d0d0
+					padding 2px
+					width 100%
+			.noleidos
+				color #333
+				display block
+				font-size 0.75em
+				padding-left 27px
+			.libroleyendo
+				color #48ea17
+				font-size 1.5em
+			.svlibroactual
+				display inline-block
+				margin 1em 1em 0 1em
+				width 140px
+				#enlacelibroactual
+					display inline-block
+					vertical-align top
+					width 116px
+					img
+						box-sizing(border-box)
+						border 1px solid #d0d0d0
+						padding 2px
+						width 100%
+
+	.notificaciones
+		color #999
+		padding-bottom 1em
+		span
+			background-color #f00
+			border-radius(9px)
+			color #fff
+			display inline-block
+			height 18px
+			margin-right 0.5em
+			line-height 18px
+			text-align center
+			width 18px
+		aside
+			color #333
+			display block
+			font-size 0.75em
+			padding-left 27px
+
+	a
+		color #333
+		display block
+		font-weight bold
+		margin-bottom 0.25em
+		text-decoration none
+		&:hover
+			opacity 0.8
+		&:hover + .fondosalas
+			opacity 0.8
+
+	.titulosala
+		background-color #a7aebe
+		box-sizing(border-box)
+		display inline-block
+		color #fff
+		height 32px
+		font-size 1em
+		margin 0 0 1em 0
+		padding-left 1.3em
+		padding-right 0.5em
+		padding-top 6px
+		text-decoration none
+	.fondosalas
+		background-image url('../images/fondotitulosala.png')
+		background-position right
+		background-repeat no-repeat
+		display inline-block
+		height 32px
+		margin-top 0px
+		vertical-align top
+		width 16px
+
+
+//inicio salasvirtuales
+.svsalavirtualinicio
+	box-sizing(border-box)
+	margin 0 1.5em 1.5em 0
+	padding-top 1em
+	vertical-align top
+	width 330px
+	.libroactualsalacabecera
+		color #999
+		display block
+		margin 0 0 1em 0
+	.libroactualsala
+		a
+			display inline-block
+			vertical-align top
+			width 104px
+		img
+			border 1px solid #d0d0d0
+			padding 2px
+			width 100%
+		.detalleslibroactual
+			display inline-block
+			margin-left 1em
+			vertical-align top
+			width 200px
+			.titulolibroactual
+				color #333
+				display block
+				&:first-letter
+					text-transform capitalize
+			.autorlibroactual
+				color #999
+				display block
+				font-size 0.85em
+				text-transform uppercase
+
+	.detallessala
+		.separacion
+			border-bottom 1px solid #d0d0d0
+			margin 0 auto
+			width 90%
+		.salalibrosleidos
+			padding-top 1em
+			.mas
+				border-radius(50%)
+				border 1px solid #909090
+				color #909090
+				display inline-block
+				font-size 1.5em
+				height 18px
+				line-height 18px
+				margin-right 0.3em
+				text-align center
+				vertical-align middle
+				width 18px
+			.librosleidosanteriormente
+				color #909090
+				display inline-block
+				font-family allerdisplay
+				font-size 1em
+				font-weight normal
+				vertical-align middle
+			.enlacelibroleidos
+				display inline-block
+				margin-right 0.5em
+				vertical-align bottom
+				width 75px
+				img
+					box-sizing(border-box)
+					border 1px solid #d0d0d0
+					padding 2px
+					width 100%
+			.noleidos
+				color #333
+				display block
+				font-size 0.75em
+				padding-left 27px
+			.libroleyendo
+				color #48ea17
+				font-size 1.5em
+			.svlibroactual
+				display inline-block
+				margin 1em 1em 0 1em
+				width 140px
+				#enlacelibroactual
+					display inline-block
+					vertical-align top
+					width 116px
+					img
+						box-sizing(border-box)
+						border 1px solid #d0d0d0
+						padding 2px
+						width 100%
+
+	.notificaciones
+		color #999
+		padding-bottom 1em
+		span
+			background-color #f00
+			border-radius(9px)
+			color #fff
+			display inline-block
+			height 18px
+			margin-right 0.5em
+			line-height 18px
+			text-align center
+			width 18px
+		aside
+			color #333
+			display block
+			font-size 0.75em
+			padding-left 27px
+
+	a
+		color #333
+		display block
+		font-weight bold
+		margin-bottom 0.25em
+		text-decoration none
+		&:hover
+			opacity 0.8
+		&:hover + .fondosalas
+			opacity 0.8
+
+	.titulosala
+		background-color #a7aebe
+		box-sizing(border-box)
+		display inline-block
+		color #fff
+		height 32px
+		font-size 1em
+		margin 0 0 1em 0
+		padding-left 1.3em
+		padding-right 0.5em
+		padding-top 6px
+		text-decoration none
+	.fondosalas
+		background-image url('../images/fondotitulosala.png')
+		background-position right
+		background-repeat no-repeat
+		display inline-block
+		height 32px
+		margin-top 0px
+		vertical-align top
+		width 16px
+//libros leidos sala
+#librosleidossala
+	margin 3em 0 0 0
+	.librosleidosanteriormente
+		color #909090
+		font-family allerdisplay
+		font-size 1.2em
+		font-weight normal
+		vertical-align middle
+	.nolibros
+		color #333
+		font-size 0.9em
+		font-style italic
+		margin-top 1.2em
+		text-align center
+	.libroleidosala
+		display inline-block
+		margin 0.8em
+		vertical-align top
+		width 26%
+		img 
+			border 1px solid #999999
+			padding 0.1em
+			width 100%
+		.titulolibroleido
+			a
+				color #333
+				font-family allerdisplay
+				font-size 0.7em
+				text-decoration none
+		.autorlibroleido
+			color #999
+			font-family allerdisplay
+			font-size 0.6em
+			text-transform uppercase
+
+//detalles sala individual
+
+#libroactual
+	margin-bottom 1em
+	img 
+		border 1px solid #999
+		display inline-block
+		vertical-align middle
+		padding 1px
+		width 40%
+	span
+		display inline-block
+		font-weight bold
+		margin-left 1em
+		vertical-align middle
+		width 50%
+		.tituloactual
+			a
+				font-family allerbold
+				font-size 0.9em
+				line-height 50%
+				color #333
+				text-decoration none
+		.autor
+			font-size 0.75em
+			font-family allerdisplay
+			font-weight normal
+			text-transform uppercase
+			color #888
+
+//busqueda
+#resultados
+	box-sizing(border-box)
+	display block
+	margin 0 auto
+	padding 0.7em
+	width 95%
+	h1
+		border-bottom solid 1px #999999
+		color #999999
+		font-family ambleregular
+		font-style italic
+		font-weight normal
+		padding-bottom 0.2em
+		margin-bottom 0
+		width 100%
+	#leyenda
+		margin-bottom 0
+	.resultadossalas
+		margin-bottom 1.6em
+	form
+		input[type=text]
+			background-color #b3b4b8
+			border 0
+			border-radius(0.25em)
+			color #fff
+			font-size 0.85em
+			margin-right 1.5em
+			padding 0.2em
+		select
+			background-color #b3b4b8
+			border 0
+			border-radius(0.25em)
+			color #fff
+			font-size 0.85em
+			margin-right 1.5em
+			padding 0.2em
+		input[type=submit]
+			background-color #fff
+			border 1px solid #c9c9c9
+			border-radius(0.25em)
+			box-sizing(border-box)
+			color #586c7d
+			margin-bottom 0.5em
+			font-size 0.8em
+			padding 0.2em 0.6em
+			text-align center
+			text-decoration none
+			&:hover
+				background: -moz-linear-gradient(top, #fff, #eee);/* F 3.6+ */
+				background: -ms-linear-gradient(top, #fff, #eee);/* IE 10+ */
+				background: -webkit-linear-gradient(top, #fff, #eee);/* FF 3.6+ */
+				background: -o-linear-gradient(top, #fff, #eee);/* Safari 5.1+, Chrome 10+ */
+				background: linear-gradient(top, #fff, #eee);/* ESTILO ESTANDAR */
+	.numeroresultados
+		display block
+		font-family alleritalic
+		font-size 0.85em
+		font-weight bold
+		margin 0 0 1em 0
+	.resultadolibro
+		display inline-block
+		margin 1em
+		vertical-align top
+		width 255px
+		.marcarcomo
+			margin-top 0.5em
+			font-size 1.2em
+			span
+				color #aaa
+				cursor pointer
+				text-shadow: 1px 1px 1px #999;
+				margin 0 0.7em 0 0.1em
+				font-size 1.5em
+			#libroleyendo:hover, #marcadolibroleyendo
+				color #48ea17
+			#libroleido:hover, #marcadolibroleido
+				color #278bd9
+			#libroquieroleer:hover, #marcadolibroquieroleer
+				color #f62f2e
+		img
+			display inline-block
+			margin-right 0.5em
+			vertical-align top
+			width 45%
+		.detallelibro
+			display inline-block
+			font-size 0.8em
+			vertical-align top
+			width 45%
+			a
+				color #333
+				text-decoration none
+				text-transform capitalize
+				&:hover
+					opacity 0.8
+			.autorlibro
+				color #999
+				display block
+				font-size 0.9em
+				text-transform uppercase
+			a.compraramazon
+					background-color #fff
+					border 1px solid #c9c9c9
+					border-radius(0.25em)
+					box-sizing(border-box)
+					color #586c7d
+					display block
+					margin 0.5em 0
+					font-size 0.75em
+					padding 0.4em 1em
+					text-align center
+					text-decoration none
+					width 100%
+					&:hover
+						background: -moz-linear-gradient(top, #fff, #eee);/* F 3.6+ */
+						background: -ms-linear-gradient(top, #fff, #eee);/* IE 10+ */
+						background: -webkit-linear-gradient(top, #fff, #eee);/* FF 3.6+ */
+						background: -o-linear-gradient(top, #fff, #eee);/* Safari 5.1+, Chrome 10+ */
+						background: linear-gradient(top, #fff, #eee);/* ESTILO ESTANDAR */
+.marcarcomo
+	margin-top 1em
+	font-size 1.2em
+	span
+		color #aaa
+		cursor pointer
+		text-shadow: 1px 1px 1px #999;
+		margin-right 0.3em
+		font-size 1.5em
+	#libroleyendo:hover, #marcadolibroleyendo
+		color #48ea17
+	#libroleido:hover, #marcadolibroleido
+		color #278bd9
+	#libroquieroleer:hover, #marcadolibroquieroleer
+		color #f62f2e
+//biblioteca
+#bibliotecaprincipal
+	box-sizing(border-box)
+	display block
+	margin 0 auto
+	padding 0.7em
+	width 95%
+	h1
+		border-bottom solid 1px #999999
+		color #999999
+		font-family ambleregular
+		font-style italic
+		font-weight normal
+		margin-bottom 0px
+		padding-bottom 0.2em
+		width 100%
+	#leyenda
+		text-align right
+		margin-top -4px
+		.leyendamarcador
+			display inline-block
+			font-size 0.55em
+			margin-right 2em
+			text-align center
+			vertical-align top
+			width 45px
+			span
+				font-size 2.7em
+			#leyendaleyendo
+				color #48ea17
+			#leyendaleido
+				color #278bd9
+			#leyendaleer
+				color #f72e2e
+	#detallesbiblioteca
+		margin 1em auto
+		width 100%
+		.imagenusuario
+			border 1px solid #aaa	
+			display inline-block
+			padding 0.5em
+			vertical-align top
+			width 100px
+			img
+				width 100%
+		.usodraggable
+			border 2px solid #d0d0d0
+			color #999
+			display inline-block
+			font-size 0.85em
+			margin 0 4em
+			padding 0 1em 1em 1em
+			vertical-align middle
+			width 300px
+			img
+				display inline-block
+				margin 0 3% 0 0
+				vertical-align middle
+				width 20%
+			p
+				display inline-block
+				vertical-align middle
+				width 75%
+			.cerrardraggable
+				background-color #fff
+				border-radius(50%)
+				border 1px solid #d0d0d0
+				color #999
+				cursor pointer
+				left 304px
+				top -12px
+				font-family verdana
+				font-weight normal
+				height 19px
+				padding-top 1px
+				position relative
+				text-align center
+				width 20px
+				z-index 1000
+				&:hover
+					background-color #d0d0d0
+					color #fff
+		.usuarioyresumen
+			display inline-block
+			font-family allerdisplay
+			font-weight normal
+			margin-left 1em
+			vertical-align middle
+			span
+				border-bottom 1px solid #d0d0d0
+				color #333
+				display block
+				margin-bottom 1em
+				padding-bottom 1em
+				&:first-letter
+					text-transform capitalize
+			.resumenlibros
+				border-bottom 0
+				color #999
+				display block
+				margin 0 0 0.2em 0
+				padding 0
+				font-size 0.85em
+			aside
+				text-align center
+				transition(all 1s ease)
+			.leyendoresumen
+				background-color #48ea17
+				border-radius(0.25em 0 0 0.25em)
+				box-sizing(border-box)
+				color #fff
+				cursor pointer
+				display inline-block
+				font-size 1.3em
+				font-weight bold
+				margin 0 0.6em 0 0
+				padding 0.4em 0.75em
+				vertical-align bottom
+			.leerresumen
+				background-color #f72e2e
+				box-sizing(border-box)
+				color #fff
+				cursor pointer
+				display inline-block
+				font-size 1.3em
+				font-weight bold
+				padding 0.4em 0.75em
+				vertical-align bottom
+			.leidosresumen
+				background-color #0b67b8
+				border-radius(0 0.25em 0.25em 0)
+				box-sizing(border-box)
+				color #fff
+				cursor pointer
+				display inline-block
+				font-size 1.3em
+				font-weight bold
+				margin 0 0 0 0.6em
+				padding 0.4em 0.75em
+				vertical-align bottom
+	#librosbiblioteca, #librosleyendo, #librosleer, #librosleidos
+		.libro
+			box-sizing(border-box)
+			display inline-block
+			margin 1.5em 1.5em 1.5em 0em
+			vertical-align top
+			width 255px
+			span
+				font-size 1.5em
+				width 30px
+			img
+				border 1px solid #d0d0d0
+				display inline-block
+				margin-right 0.5em
+				padding 2px
+				vertical-align top
+				width 75px
+			.detallelibro
+				display inline-block
+				font-size 0.8em
+				vertical-align top
+				width 140px
+				a
+					color #333
+					display block
+					text-decoration none
+					&:hover
+						opacity 0.8
+				.autorlibrobiblioteca
+					color #999
+					display block
+					font-size 0.85em
+					text-transform uppercase
+				a.compraramazon
+					background-color #fff
+					border 1px solid #c9c9c9
+					border-radius(0.25em)
+					box-sizing(border-box)
+					color #586c7d
+					display block
+					margin 0.5em 0
+					font-size 0.75em
+					padding 0.4em 1em
+					text-align center
+					text-decoration none
+					width 100%
+					&:hover
+						background: -moz-linear-gradient(top, #fff, #eee);/* F 3.6+ */
+						background: -ms-linear-gradient(top, #fff, #eee);/* IE 10+ */
+						background: -webkit-linear-gradient(top, #fff, #eee);/* FF 3.6+ */
+						background: -o-linear-gradient(top, #fff, #eee);/* Safari 5.1+, Chrome 10+ */
+						background: linear-gradient(top, #fff, #eee);/* ESTILO ESTANDAR */
+			.libroleyendo
+				color #48ea17
+			.libroleer
+				color #f72e2e
+			.libroleido
+				color #278bd9
+	#librosleyendo, #librosleer, #librosleidos
+		display none
+
+//libro
+#libro
+	box-sizing(border-box)
+	display block
+	margin 0 auto
+	padding 0.7em
+	width 95%
+	h1
+		border-bottom solid 1px #999999
+		color #999999
+		font-family ambleregular
+		font-style italic
+		font-weight normal
+		padding-bottom 0.2em
+		margin-bottom 0
+		width 100%
+	#imagenyrecomendados
+		display inline-block
+		text-align center
+		vertical-align top
+		width 20%
+		img
+			border 1px solid #999999
+			display inline-block
+			margin 0 1.5em 1em 0
+			padding 0.1em
+			vertical-align top
+			width 100%
+		a.compraramazon
+			background-color #fff
+			border 1px solid #c9c9c9
+			border-radius(0.25em)
+			box-sizing(border-box)
+			color #586c7d
+			margin-bottom 0.5em
+			font-size 0.75em
+			padding 0.4em 1em
+			text-align center
+			text-decoration none
+			&:hover
+				background: -moz-linear-gradient(top, #fff, #eee);/* F 3.6+ */
+				background: -ms-linear-gradient(top, #fff, #eee);/* IE 10+ */
+				background: -webkit-linear-gradient(top, #fff, #eee);/* FF 3.6+ */
+				background: -o-linear-gradient(top, #fff, #eee);/* Safari 5.1+, Chrome 10+ */
+				background: linear-gradient(top, #fff, #eee);/* ESTILO ESTANDAR */
+		#recomendados
+			margin-top 3em
+			text-align left
+			.mas
+				border-radius(50%)
+				border 1px solid #909090
+				box-sizing(border-box)
+				color #909090
+				display inline-block
+				font-size 1.5em
+				height 25px
+				margin-right 0.2em
+				padding-top 4px
+				text-align center
+				vertical-align middle
+				width 25px
+			.librosrecomendados
+				color #909090
+				font-family allerdisplay
+				font-size 1em
+				font-weight normal
+				vertical-align middle
+			.recomendado
+				margin-top 1em
+				a
+					display inline-block
+					vertical-align top
+					width 45%
+					img
+						width 100%
+				.detallesrecomendado
+					display inline-block
+					margin-left 1em
+					vertical-align top
+					width 45%;
+					.titulo
+						color #333
+						display block
+						font-family allerdisplay
+						font-size 0.7em
+						font-weight normal
+						line-height 1em
+						text-transform capitalize
+					.autor
+						color #888
+						display block
+						font-family allerdisplay
+						font-size 0.6em
+						font-weight normal
+						text-transform uppercase
+						line-height 1em
+						margin-top 0.5em
+	#detalleslibro
+		display inline-block
+		margin-left 2.5em
+		vertical-align top
+		width 75%
+		h3
+			color #333
+			font-family alleritalic
+			font-weight normal
+			margin 0 0 0.1em 0
+		h4
+			margin 1.5em 0 1em 0
+			padding 0
+			.etiqueta
+				color #fff
+				background-color #a7aebe
+				box-sizing(border-box)
+				display inline-block
+				height 32px
+				font-family allerdisplay
+				font-size 0.85em
+				font-weight normal
+				padding-left 1.3em
+				padding-right 0.5em
+				padding-top 6px
+				text-decoration none
+			.fondosala
+				background-image url('../images/fondotitulosala.png')
+				background-position right
+				background-repeat no-repeat
+				display inline-block
+				height 32px
+				margin-top 0px
+				vertical-align top
+				width 16px
+		.categorialibro
+			color #333
+			display block
+			font-family allerdisplay
+			font-weight normal
+			margin-top 0.2em
+			span
+				color #888
+		.autorlibro
+			color #333
+			display block
+			font-family allerdisplay
+			font-weight normal
+			margin-top 0.2em
+			span
+				color #888
+		.editoriallibro
+			color #333
+			display block
+			font-family allerdisplay
+			font-weight normal
+			margin-top 0.2em
+			span
+				color #888
+		#descripcioncorta
+			span
+				color #999
+				cursor pointer
+				font-weight bold
+				&:hover
+					opacity 0.8
+		#descripcionlarga
+			display none;
+		#descripcioncorta, #descripcionlarga, #descripcioncompleta
+			color #999
+			font-family allerdisplay
+			font-weight normal
+	#descripcion
+		border-bottom 1px solid #333
+		font-size 0.85em
+		margin-top 1.5em
+		padding-bottom 1.5em
+	#comentarios
+		font-family allerdisplay
+		font-weight normal
+		width 100%
+		form
+			text-align right
+			width 100%
+			textarea
+				border 1px solid #bebebe
+				border-radius(0.5em)
+				box-shadow(0px 0px 4px #9fe9f6)
+				display block
+				height 75px
+				margin-bottom 0.5em
+				max-width 100%
+				width 100%
+			input[type=submit]
+				background-color #f6f6f6
+				border 1px solid #c9c9c9
+				border-radius(0.25em)
+				box-sizing(border-box)
+				color #909090
+				font-size 0.8em
+				margin 0.5em 0
+				padding 0.2em 0.6em
+				text-align center
+				text-decoration none
+				font-weight normal
+				&:hover
+					background: -moz-linear-gradient(top, #fff, #eee);/* F 3.6+ */
+					background: -ms-linear-gradient(top, #fff, #eee);/* IE 10+ */
+					background: -webkit-linear-gradient(top, #fff, #eee);/* FF 3.6+ */
+					background: -o-linear-gradient(top, #fff, #eee);/* Safari 5.1+, Chrome 10+ */
+					background: linear-gradient(top, #fff, #eee);/* ESTILO ESTANDAR */
+		.nocomentarios
+			color #999
+		.bordebottom
+			border-bottom 1px solid #d0d0d0
+		.comentariolibro
+			margin 1em 0
+			padding 1em 0
+			width 100%
+			.detalleusuario
+				display inline-block
+				font-size 0.7em
+				font-weight bold
+				margin-right 1.5em
+				text-align left
+				vertical-align top
+				width 65px
+				img
+					margin-right 0
+					width 65px
+			.textocomentario
+				display inline-block
+				font-size 0.85em
+				font-family allerdisplay
+				font-weight normal
+				text-align left
+				vertical-align top
+				width 85%
+				.usuariocomentario
+					color #333
+					display block
+					text-transform capitalize
+				.texto
+					color #999
+					display block
+					margin-top 0.5em
+			.eliminarcomentario
+				text-align right
+				a
+					color #999
+					border 1px solid #d0d0d0
+					font-size 0.85em
+					font-weight bold
+					text-decoration none
+					padding 0 0.2em
+					&:hover
+						background-color #d0d0d0
+						color #fff
+
+#vermaslibros, #vermassalas, #vermascomentarios, #vermasnotificaciones
+	height 50px
+	margin 1em auto
+	box-sizing(border-box)
+	background-size 100%
+	color blue
+	cursor pointer
+	font-size 0.75em
+	font-weight bold
+	text-align center
+	padding-top 0.5em
+	width 50px
+	span
+		color #888
+		font-size 2em
+		text-shadow: 2px 2px #aaa;
+		&:hover
+			color #999
+
+.noresultados
+	padding 1em 0
+	font-size 0.85em
+	font-style italic
+	text-align center
+	width 100%
+
+//perfil
+#perfil
+	box-sizing(border-box)
+	display block
+	margin 0 auto
+	padding 0.7em
+	width 95%
+	h1
+		border-bottom solid 1px #999999
+		color #999999
+		font-family ambleregular
+		font-style italic
+		font-weight normal
+		padding-bottom 0.2em
+		width 100%
+	.detallesperfil
+		box-sizing(border-bottom)
+		margin 2em 0
+		padding 0 0 0 1em
+		width 100%
+		.imagenperfil
+			box-sizing(border-box)
+			background-color #f4f4f4
+			margin 1em 0
+			padding 1.5em
+			width 90%
+			.imagenactualusuario
+				border 1px solid #d0d0d0
+				margin-right 8em
+				padding 0.5em
+				width 110px
+			.imagenparaperfil
+				border 1px solid #d0d0d0
+				cursor pointer
+				margin-right 1.5em
+				padding 0.4em
+				transition(0.5s ease width)
+				width 90px
+				&:hover
+					width 95px
+		.usuarioperfil
+			color #333
+			font-size 1.3em
+			margin 1em 0
+			&:first-letter
+					text-transform capitalize
+	.formularioperfil
+		margin 2em 0em
+		label
+			display inline-block
+			font-size 0.85em
+			margin 1em 1em
+			padding-left 2.4em
+			vertical-align middle
+			width 125px
+		input[type=text]
+			background-color #b3b4b8
+			border 0
+			border-radius(0.25em)
+			color #fff
+			padding 0.25em 0.6em
+			width 200px
+		select
+			background-color #b3b4b8
+			border 0
+			border-radius(0.25em)
+			color #fff
+			padding 0.25em 0.6em
+			width 150px
+		.error
+			display block
+			color #ff0000
+			margin 0.25em 1em
+			font-size 0.75em
+			padding-left 2.4em
+			text-align left
+			width 100%;
+		.guardado
+			display block
+			color #2bab04
+			margin 0.25em 1em
+			font-size 0.75em
+			padding-left 2.4em
+			text-align left
+			width 100%;
+		.infocontacto
+			color #909090
+			display inline-block
+			font-family allerdisplay
+			font-size 1.2em
+			font-weight normal
+			margin 1em 0 1em 0
+			vertical-align middle
+			width 90%
+		.camposobligatorios
+			color #999
+			font-size 0.75em
+			font-style oblique
+			margin-left 3.5em
+	.formulariogustos
+		.categoriaregistro
+			box-sizing(border-box)
+			display inline-block
+			margin 0.5em 0
+			padding-left 6%
+			font-size 0.85em
+			vertical-align margin-bottom
+			width 32%
+		.infocontacto
+			color #909090
+			display inline-block
+			font-family allerdisplay
+			font-size 1.2em
+			font-weight normal
+			margin 1.5em 0 1.2em 0
+			vertical-align middle
+			width 90%
+		.guardado
+			display block
+			color #2bab04
+			margin 0.25em 1em
+			font-size 0.75em
+			padding-left 2.4em
+			text-align left
+			width 100%;
+	.darsedebaja
+		margin 2em 0
+		text-align right
+		a
+			background-color #f6f6f6
+			border 1px solid #c9c9c9
+			border-radius(0.25em)
+			box-sizing(border-box)
+			color #909090
+			font-size 0.7em
+			margin-bottom 0.5em
+			padding 0.5em 0.75em
+			text-align center
+			text-decoration none
+			font-weight normal
+			width 125px
+			&:hover
+				background: -moz-linear-gradient(top, #fff, #eee);/* F 3.6+ */
+				background: -ms-linear-gradient(top, #fff, #eee);/* IE 10+ */
+				background: -webkit-linear-gradient(top, #fff, #eee);/* FF 3.6+ */
+				background: -o-linear-gradient(top, #fff, #eee);/* Safari 5.1+, Chrome 10+ */
+				background: linear-gradient(top, #fff, #eee);/* ESTILO ESTANDAR */
+	.botonperfil
+		background-color #fff
+		border 1px solid #c9c9c9
+		border-radius(0.25em)
+		box-sizing(border-box)
+		color #586c7d
+		display block
+		margin 1em 3.5em
+		font-size 0.8em
+		padding 0.2em 0.6em
+		text-align center
+		text-decoration none
+		&:hover
+			background: -moz-linear-gradient(top, #fff, #eee);/* F 3.6+ */
+			background: -ms-linear-gradient(top, #fff, #eee);/* IE 10+ */
+			background: -webkit-linear-gradient(top, #fff, #eee);/* FF 3.6+ */
+			background: -o-linear-gradient(top, #fff, #eee);/* Safari 5.1+, Chrome 10+ */
+			background: linear-gradient(top, #fff, #eee);/* ESTILO ESTANDAR */
+
+//reglas
+#reglas
+	box-sizing(border-box)
+	display block
+	margin 0 auto
+	padding 0.7em
+	width 95%
+	h1
+		border-bottom solid 1px #999999
+		color #999999
+		font-family ambleregular
+		font-style italic
+		font-weight normal
+		padding-bottom 0.2em
+		width 100%
+	p.texto, article.texto
+		color #333
+		padding 0 2em
+		margin 1em 0
+		span
+			display inline-block
+			font-size 1em
+			font-weight bold
+			vertical-align top
+			width 5%
+		p
+			display inline-block
+			margin-top 0
+			vertical-align top
+			width 92%
+.mas
+		border-radius(50%)
+		border 1px solid #909090
+		color #909090
+		display inline-block
+		font-size 3em
+		height 34px
+		line-height 0.8em
+		margin-right 0.2em
+		text-align center
+		vertical-align middle
+		width 34px
+
+
+
+
+	

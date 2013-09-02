@@ -1,0 +1,96 @@
+doctype 5
+html
+	head
+		title= title
+		meta(charset='utf-8')
+		link(rel='stylesheet', href='/stylesheets/normalize.css')
+		link(rel='stylesheet', href='/stylesheets/estilos.css')
+		link(rel='stylesheet', href='/stylesheets/responsive.css')
+		meta(name="viewport", content="width=device-width, initial-scale=1, maximum-scale=1")
+	body
+		section#contenido
+			nav#menu
+				ul
+					li
+						a(href="/inicio", title="Inicio") 
+							img(src="/images/inicio.png", alt="Inicio")
+							span
+								| Inicio
+					li
+						a(href="/salas-virtuales", title="Salas Virtuales")
+							img(src="/images/salasvirtuales.png", alt="Salas Virtuales")
+							span
+								| Salas Virtuales
+					li
+						a(href="/biblioteca")
+							img(src="/images/biblioteca.png", alt="Biblioteca")
+							br
+							span
+								| Biblioteca
+					li
+						a(href="/perfil")
+							img(src="/images/perfil.png", alt="Perfil", data-usuario="#{usuario.usuario}", id="perfilusuario")
+							span
+								| Perfil
+					li(id="menuactivo")
+						a(href="/reglas")
+							img(src="/images/usoactivo.png")
+							span
+								| Reglas
+					li(class='menubuscar')
+						a(href="#busqueda")
+							img(src="/images/lupa.png", alt="Buscar")
+							span
+								| Buscar
+					li
+						a(href="/salir")
+							img(src="/images/salir.png", alt="Salir")
+							span
+								| Salir
+			aside.flechamenu
+			section#dashboard
+				section#reglas
+					h1 Reglas
+					p.texto
+						| Se recomienda tener una serie de consideraciones para que el uso de esta plataforma mantenga el clima adecuado para un disfrute máximo de todas las características que esta plataforma ofrece:
+					article.texto
+						span	1
+						p
+							| Respetar las opiniones del resto de usuarios, el insulto o un lenguaje ofensivo no tiene cabida en esta plataforma, el uso de este tipo de lenguaje equivale a la eliminación temporal de la cuenta.
+					article.texto
+						span	2
+						p
+							| Es conveniente que dentro de cada sala virtual se comente/debate sobre la categoría de dicha sala virtual.
+					article.texto
+						span	3
+						p
+							| No se permite el envío de contenidos promocionales a través de la zona de debate, la ficha del libro o el chat, esta acción es motivo de eliminación temporal de la cuenta.
+					article.texto
+						span	4
+						p
+							| Se recomienda no dejar tus datos tanto personales como de la plataforma en ningún comentario. Neighborbook no se hace responsable del uso inadecuado que pueda hacerse de los datos personales enviados a dichos contenidos.
+					article.texto
+						span	5
+						p
+							| El usuario para registrarse es necesario un nombre de usuario, un correo electrónico, sus gustos literarios y el libro que se esta leyendo actualmente, posteriormente puedes añadir datos extra.
+
+			section#lateral
+					section#busqueda
+						form(action='/busqueda', method='post', id='formbuscar')
+							input(type='text', id='buscar', name='buscar', placeholder='Búsqueda')
+							br
+							select(id='categoria', name='categoria')
+								option(value='0') Seleccione Categoría
+								option(value='libro') Título
+								option(value='tematica') Temática
+								option(value='autor') Autor
+								option(value='salavirtual') Sala Virtual
+							br
+							input(type='submit', value='Buscar')
+					section#notificaciones
+						h3 Notificaciones	
+						section.ningunanotificacion
+							|Aquí recibirás las notificaciones en tiempo real mientras estes conectado.
+		script(src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js")
+		script(type="text/javascript", src="http://localhost:3000/socket.io/socket.io.js")
+		script(src="/javascripts/funciones.js")			
